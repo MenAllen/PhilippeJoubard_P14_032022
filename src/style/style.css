@@ -1,0 +1,99 @@
+.small-size {
+  height: 80px;
+  width: 80px;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+.bg-color-custom {
+  background-color: rgb(94, 115, 14, 0.8);
+/*  background-color: rgba(154, 159, 135, 0.8);*/
+}
+
+/* --------------------------------------------- */
+/* Header component                              */
+/* --------------------------------------------- */
+header {
+  position: fixed;
+}
+
+.right-aligned {
+  flex-grow: 0 !important
+}
+
+.nav-item {
+  text-decoration: none;
+  color: rgb(94, 115, 14, 0.8) !important;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------- */
+/* Footer component                              */
+/* --------------------------------------------- */
+.footer {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ccc;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  position: absolute;
+  left: 0;
+  width: 100%
+}
+
+.footer-text {
+  margin: 0;
+  padding: 0;
+}
+
+
+.main-row {
+  min-height: calc(100vh - 196px);
+}
+
+/* --------------------------------------------- */
+/* CreateForm component                          */
+/* --------------------------------------------- */
+.formular {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 2px solid #fbfbfb;
+  border-radius: 10px;
+  background-color:  rgb(147, 173, 24, 0.8);
+  min-width: 330px;
+  max-width: 527px;
+  justify-self:center;
+}
+
+.sub-form-container {
+  margin: 0.5rem 0;
+  border: 1px solid #fbfbfb;
+  border-radius: 10px;
+  background-color:  rgb(147, 173, 24, 0.8);
+}
+
+.form-container {
+  display: grid;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
