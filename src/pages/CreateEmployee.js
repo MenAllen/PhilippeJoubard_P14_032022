@@ -11,7 +11,7 @@ import "../style/style.css";
 const CreateEmployee = () => {
 	return (
 		<Container fluid className="h-100 bg-color-custom">
-			<Row className="main-row justify-content-center" bg="primary">
+			<Row className="main-row justify-content-center align-items-center" bg="primary">
 				<CreateForm />
 			</Row>
 		</Container>

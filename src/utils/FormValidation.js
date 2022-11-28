@@ -1,4 +1,4 @@
-export const checkForm = (data) => {
+export default function checkForm (data) {
 	console.log("checkForm");
 	const dateToday = new Date();
 
@@ -37,17 +37,17 @@ export const checkForm = (data) => {
 	 *             specific message if error
 	 *  */
 
-	if (!validName(data.firstName)) {
+	if (!validName(data.firstname)) {
 		console.log("firstName");
 		return "min two max 50 characters required for firstName";
 	}
 
-	if (!validName(data.lastName)) {
+	if (!validName(data.lastname)) {
 		console.log("lastName");
 		return "min two max 50 characters required for lastName";
 	}
 
-	if (!validBirthDate(data.birthDate)) {
+	if (!validBirthDate(data.birthdate)) {
 		console.log("birthdate");
 		return "Birth date must be at least 15 years behind";
 	}
@@ -67,10 +67,10 @@ export const checkForm = (data) => {
 		return "Zip Code must be 5 digit number";
 	}
 
-	if (!validStartDate(data.startDate, data.birthDate)) {
+	if (!validStartDate(data.startdate, data.birthdate)) {
 		console.log("startDate");
 		return "Start date must be consistent with birth date";
 	}
 
-	return "OK";
+	return "Employee successfully created !";
 };

@@ -5,9 +5,10 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Modal from "../Modal/Modal";
 import { addEmployee, saveEmployees } from "../../features/employeeSlice";
 import STATES from "../../data/STATES.json";
-import { checkForm } from "../../utils/FormValidation";
+import checkForm from "../../utils/FormValidation";
 import "../../style/style.css";
 
 /**
@@ -17,63 +18,52 @@ import "../../style/style.css";
  */
 function CreateForm() {
 	const dispatch = useDispatch();
-	const initialResult = {
-		firstName: "",
-		lastName: "",
-		birthDate: "",
-		street: "",
-		city: "",
-		state: "",
-		zipcode: "",
-		department: "",
-		startDate: "",
-	};
+	let inputResult = "";
 
 	// Hook states declaration & initialisation
+	const [firstname, setFirstname] = useState("");
+	const [lastname, setLastname] = useState("");
+	const [birthdate, setBirthdate] = useState("");
+	const [street, setStreet] = useState("");
+	const [city, setCity] = useState("");
+	const [state, setState] = useState("");
+	const [zipcode, setZipcode] = useState("");
+	const [startdate, setStartdate] = useState("");
+	const [department, setDepartment] = useState("");
 	const [validated, setValidated] = useState(false);
-	const [inputResult, setInputResult] = useState(initialResult);
+	const [openModal, setOpenModal] = useState(false);
+	const [messageModal, setMessageModal] = useState("");
 
-	// Fill in input result after submit
-	const updateInput = (field, value) => {
-		switch (field) {
-			case "firstName":
-				inputResult.firstName = value;
-				break;
-			case "lastName":
-				inputResult.lastName = value;
-				break;
-			case "birthDate":
-				inputResult.birthDate = value;
-				break;
-			case "street":
-				inputResult.street = value;
-				break;
-			case "city":
-				inputResult.city = value;
-				break;
-			case "state":
-				inputResult.state = value;
-				break;
-			case "zipcode":
-				inputResult.zipcode = value;
-				break;
-			case "startDate":
-				inputResult.startDate = value;
-				break;
-			case "department":
-				inputResult.department = value;
-				break;
-			default:
-		}
-		setInputResult(inputResult);
-	};
+	const inputValue = {
+		firstname,
+		lastname,
+		birthdate,
+		street,
+		city,
+		state,
+		startdate,
+		zipcode,
+		department
+	}
+
+	function resetInputValues() {
+		setFirstname("");
+		setLastname("");
+		setBirthdate("");
+		setStreet("");
+		setCity("");
+		setState("");
+		setStartdate("");
+		setZipcode("");
+		setDepartment("");
+	}
 
 	// Manage form validation when submit button pressed
-	const handleSubmit = (e) => {
+	function handleSubmit (e) {
 		e.preventDefault();
 		const form = e.currentTarget;
 
-		console.log("handleSubmit: ", inputResult);
+		console.log("handleSubmit: ", inputValue);
 		if (form.checkValidity() === false) {
 			console.log("checkValidity false");
 			e.stopPropagation();
@@ -82,21 +72,28 @@ function CreateForm() {
 		}
 
 		setValidated(true);
-		const report = checkForm(inputResult);
-		console.log("report: ", report);
-		if (report === "OK") {
-			dispatch(addEmployee(inputResult));
+		inputResult = checkForm(inputValue);
+		console.log("inputResult: ", inputResult);
+		setMessageModal(inputResult);
+		if (inputResult === "Employee successfully created !") {
+			dispatch(addEmployee(inputValue));
 			dispatch(saveEmployees());
-			setInputResult(initialResult);
+			resetInputValues();
 			e.target.reset();
+			setOpenModal(true);
 			setValidated(false);
+			return;
 		}
+
+		if (inputResult !== "") setOpenModal(true);
 	};
 
-	const handleReset = (e) => {
+	function handleReset (e) {
+		console.log("handleReset")
 		e.preventDefault();
-		e.target.reset();
+		resetInputValues();
 		setValidated(false);
+		e.target.reset();
 	};
 
 	return (
@@ -116,11 +113,10 @@ function CreateForm() {
 							<Form.Group as={Col} className="mb-3" controlId="formFirstName">
 								<Form.Label>First Name</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("firstName", e.target.value);
-									}}
 									required
 									placeholder="Firstname"
+									onChange={(e) => setFirstname(e.target.value)}
+									value={firstname}
 								/>
 							</Form.Group>
 							<Form.Control.Feedback type="invalid">
@@ -129,11 +125,10 @@ function CreateForm() {
 							<Form.Group as={Col} className="mb-3" controlId="formLastName">
 								<Form.Label>Last Name</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("lastName", e.target.value);
-									}}
 									required
 									placeholder="Lastname"
+									onChange={(e) => setLastname(e.target.value)}
+									value={lastname}
 								/>
 							</Form.Group>
 						</Row>
@@ -143,11 +138,9 @@ function CreateForm() {
 								<Form.Control
 									required
 									type="date"
-									onChange={(e) => {
-										updateInput("birthDate", e.target.value);
-									}}
 									placeholder="Birth Date"
-									aria-label="Birth Date"
+									onChange={(e) => setBirthdate(e.target.value)}
+									value={birthdate}
 								/>
 							</Form.Group>
 						</Row>
@@ -157,21 +150,19 @@ function CreateForm() {
 							<Form.Group as={Col} className="mb-3" controlId="formStreet">
 								<Form.Label>Street</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("street", e.target.value);
-									}}
 									required
 									placeholder="Street"
+									onChange={(e) => setStreet(e.target.value)}
+									value={street}
 								/>
 							</Form.Group>
 							<Form.Group as={Col} className="mb-3" controlId="formCity">
 								<Form.Label>City</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("city", e.target.value);
-									}}
 									required
 									placeholder="City"
+									onChange={(e) => setCity(e.target.value)}
+									value={city}
 								/>
 							</Form.Group>
 						</Row>
@@ -179,10 +170,9 @@ function CreateForm() {
 							<Col>
 								<Form.Label>State</Form.Label>
 								<Form.Select
-									onChange={(e) => {
-										updateInput("state", e.target.value);
-									}}
-									required>
+									onChange={(e) => setState(e.target.value)}
+									required
+									value={state}>
 									<option value="">Select State</option>
 									{STATES.map((element) => {
 										return (
@@ -196,12 +186,11 @@ function CreateForm() {
 							<Form.Group as={Col} className="mb-3" controlId="formZipCode">
 								<Form.Label>Zip Code</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("zipcode", e.target.value);
-									}}
 									required
 									type="number"
 									placeholder="Zip Code"
+									onChange={(e) => setZipcode(e.target.value)}
+									value={zipcode}
 								/>
 							</Form.Group>
 						</Row>
@@ -211,21 +200,19 @@ function CreateForm() {
 							<Form.Group as={Col} className="mb-3" controlId="formStartDate">
 								<Form.Label>Start Date</Form.Label>
 								<Form.Control
-									onChange={(e) => {
-										updateInput("startDate", e.target.value);
-									}}
 									required
 									type="date"
 									placeholder="Start Date"
+									onChange={(e) => setStartdate(e.target.value)}
+									value={startdate}
 								/>
 							</Form.Group>
 							<Col>
 								<Form.Label>Department</Form.Label>
 								<Form.Select
-									onChange={(e) => {
-										updateInput("department", e.target.value);
-									}}
-									required>
+									onChange={(e) => setDepartment(e.target.value)}
+									required
+									value={department}>
 									<option value="">Select State</option>
 									<option value="1">Sales</option>
 									<option value="2">Marketing</option>
@@ -236,16 +223,17 @@ function CreateForm() {
 							</Col>
 						</Row>
 					</Container>
-					<Container fluid className="d-flex justify-content-around" >
-					<Button type="submit" className="btn btn-success">
-						Submit
-					</Button>
-					<Button type="reset" className="btn bg-transparent">
-						Reset
-					</Button>
+					<Container fluid className="d-flex justify-content-around">
+						<Button type="submit" className="btn btn-success">
+							Submit
+						</Button>
+						<Button type="reset" className="btn bg-transparent">
+							Reset
+						</Button>
 					</Container>
 				</Form>
 			</Col>
+			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} />
 		</>
 	);
 }

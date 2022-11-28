@@ -27,7 +27,7 @@ useEffect(() => {
 
 	return (
 		<Container fluid className="bg-color-custom">
-			<Row className="main-row justify-content-center" bg="primary">
+			<Row className="main-row justify-content-center align-items-center" bg="primary">
 				<HomeCard />
 			</Row>
 		</Container>
