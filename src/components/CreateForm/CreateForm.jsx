@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import Modal from "../Modal/Modal";
 import { addEmployee, saveEmployees } from "../../features/employeeSlice";
 import STATES from "../../data/STATES.json";
@@ -18,6 +15,8 @@ import "../../style/style.css";
  */
 function CreateForm() {
 	const dispatch = useDispatch();
+	const CustomGreen = '#93AD18';
+
 	let inputResult = "";
 
 	// Hook states declaration & initialisation
@@ -43,8 +42,8 @@ function CreateForm() {
 		state,
 		startdate,
 		zipcode,
-		department
-	}
+		department,
+	};
 
 	function resetInputValues() {
 		setFirstname("");
@@ -59,7 +58,7 @@ function CreateForm() {
 	}
 
 	// Manage form validation when submit button pressed
-	function handleSubmit (e) {
+	function handleSubmit(e) {
 		e.preventDefault();
 		const form = e.currentTarget;
 
@@ -86,15 +85,15 @@ function CreateForm() {
 		}
 
 		if (inputResult !== "") setOpenModal(true);
-	};
+	}
 
-	function handleReset (e) {
-		console.log("handleReset")
+	function handleReset(e) {
+		console.log("handleReset");
 		e.preventDefault();
 		resetInputValues();
 		setValidated(false);
 		e.target.reset();
-	};
+	}
 
 	return (
 		<>
@@ -110,30 +109,39 @@ function CreateForm() {
 					onReset={handleReset}>
 					<Container className="sub-form-container">
 						<Row>
-							<Form.Group as={Col} className="mb-3" controlId="formFirstName">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>First Name</Form.Label>
 								<Form.Control
 									required
 									placeholder="Firstname"
 									onChange={(e) => setFirstname(e.target.value)}
 									value={firstname}
+									minLength={2}
+									maxLength={50}
+									pattern="^[( )a-zA-Z]+$"
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									must be 2 to 50 chars, letters only
+								</Form.Control.Feedback>
 							</Form.Group>
-							<Form.Control.Feedback type="invalid">
-								Please provide a valid city.
-							</Form.Control.Feedback>
-							<Form.Group as={Col} className="mb-3" controlId="formLastName">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>Last Name</Form.Label>
 								<Form.Control
 									required
 									placeholder="Lastname"
 									onChange={(e) => setLastname(e.target.value)}
 									value={lastname}
+									minLength={2}
+									maxLength={50}
+									pattern="^[( )a-zA-Z]+$"
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									must be 2 to 50 chars, letters only
+								</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 						<Row>
-							<Form.Group as={Col} className="mb-3" controlId="formBirthDate">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>Birth Date</Form.Label>
 								<Form.Control
 									required
@@ -141,38 +149,48 @@ function CreateForm() {
 									placeholder="Birth Date"
 									onChange={(e) => setBirthdate(e.target.value)}
 									value={birthdate}
+									id="datemin"
+									name="datemin"
+									min="1930-01-01"
+									max="2007-01-01"
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									must be at least 15 years old
+								</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 					</Container>
 					<Container className="sub-form-container">
 						<Row>
-							<Form.Group as={Col} className="mb-3" controlId="formStreet">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>Street</Form.Label>
 								<Form.Control
 									required
 									placeholder="Street"
 									onChange={(e) => setStreet(e.target.value)}
 									value={street}
+									minLength={2}
+									maxLength={50}
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">must be 2 to 50 chars</Form.Control.Feedback>
 							</Form.Group>
-							<Form.Group as={Col} className="mb-3" controlId="formCity">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>City</Form.Label>
 								<Form.Control
 									required
 									placeholder="City"
 									onChange={(e) => setCity(e.target.value)}
 									value={city}
+									minLength={2}
+									maxLength={50}
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">must be 2 to 50 chars</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 						<Row>
 							<Col>
 								<Form.Label>State</Form.Label>
-								<Form.Select
-									onChange={(e) => setState(e.target.value)}
-									required
-									value={state}>
+								<Form.Select onChange={(e) => setState(e.target.value)} required value={state}>
 									<option value="">Select State</option>
 									{STATES.map((element) => {
 										return (
@@ -182,8 +200,11 @@ function CreateForm() {
 										);
 									})}
 								</Form.Select>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									Select State
+								</Form.Control.Feedback>
 							</Col>
-							<Form.Group as={Col} className="mb-3" controlId="formZipCode">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>Zip Code</Form.Label>
 								<Form.Control
 									required
@@ -191,13 +212,16 @@ function CreateForm() {
 									placeholder="Zip Code"
 									onChange={(e) => setZipcode(e.target.value)}
 									value={zipcode}
+									min={10000}
+									max={99999}
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">must be 5 numbers</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 					</Container>
 					<Container className="sub-form-container">
 						<Row>
-							<Form.Group as={Col} className="mb-3" controlId="formStartDate">
+							<Form.Group as={Col} className="mb-3">
 								<Form.Label>Start Date</Form.Label>
 								<Form.Control
 									required
@@ -205,7 +229,14 @@ function CreateForm() {
 									placeholder="Start Date"
 									onChange={(e) => setStartdate(e.target.value)}
 									value={startdate}
+									id="datemin"
+									name="datemin"
+									min="1930-01-01"
+									max="2022-12-01"
 								/>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									must be at least 15 years old
+								</Form.Control.Feedback>
 							</Form.Group>
 							<Col>
 								<Form.Label>Department</Form.Label>
@@ -213,13 +244,16 @@ function CreateForm() {
 									onChange={(e) => setDepartment(e.target.value)}
 									required
 									value={department}>
-									<option value="">Select State</option>
-									<option value="1">Sales</option>
-									<option value="2">Marketing</option>
-									<option value="3">Engineering</option>
-									<option value="4">Human Resources</option>
-									<option value="5">Legal</option>
+									<option value="">Select Department</option>
+									<option value="Sales">Sales</option>
+									<option value="Marketing">Marketing</option>
+									<option value="Engineering">Engineering</option>
+									<option value="Human Resources">Human Resources</option>
+									<option value="Legal">Legal</option>
 								</Form.Select>
+								<Form.Control.Feedback className='text-dark' type="invalid">
+									Select Department
+								</Form.Control.Feedback>
 							</Col>
 						</Row>
 					</Container>
@@ -233,7 +267,7 @@ function CreateForm() {
 					</Container>
 				</Form>
 			</Col>
-			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} />
+			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} bgColor={CustomGreen} Color={"white"} />
 		</>
 	);
 }

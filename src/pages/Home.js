@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { uploadEmployees, activateState } from "../features/employeeSlice";
+import { uploadEmployees, saveEmployees, activateState } from "../features/employeeSlice";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import HomeCard from "../components/HomeCard/HomeCard";
+import MOCKDATA from "../data/MOCKDATA";
 import "../style/style.css";
 
 /**
@@ -13,17 +14,26 @@ import "../style/style.css";
 const Home = () => {
 	const dispatch = useDispatch();
 	const { stateActive } = useSelector((state) => state.employee);
+	const dataMocked = false;
 
-// Update state if state redux empty
-useEffect(() => {
-	console.log("Home useEffect: ", stateActive)
-	// if state empty & employeeList exists in localStorage, then upload state
-	if ( !stateActive && localStorage.getItem("employeeList")) {
-		dispatch(uploadEmployees(JSON.parse(localStorage.getItem("employeeList"))));
-	}
-	dispatch(activateState())
-}, []);
+	// Update state if state redux empty
+	useEffect(() => {
+		console.log("Home useEffect: ", stateActive, dataMocked);
 
+		// If dataMocked required upload from file 
+		if (dataMocked && !stateActive) {
+			dispatch(uploadEmployees(MOCKDATA));
+			dispatch(saveEmployees());
+			return
+		}
+
+		// if state empty & employeeList exists in localStorage, then upload state
+		if (!stateActive && localStorage.getItem("employeeList")) {
+			dispatch(uploadEmployees(JSON.parse(localStorage.getItem("employeeList"))));
+		}
+
+		dispatch(activateState());
+	}, []);
 
 	return (
 		<Container fluid className="bg-color-custom">
@@ -32,6 +42,6 @@ useEffect(() => {
 			</Row>
 		</Container>
 	);
-}
+};
 
 export default Home;

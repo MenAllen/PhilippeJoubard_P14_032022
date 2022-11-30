@@ -16,6 +16,7 @@ Step 2 : Select one of the JQuery plugin, and build a React plugin
  - @ReduxJS/Toolkit V1
  - Bootstrap V5
  - React-Bootstrap V2
+ - React-Table
  - ESlint Linter
  - Prettier Code formater
  - Styled-Components
@@ -30,3 +31,10 @@ clone this repo https://github.com/MenAllen/PhilippeJoubard_P14_032022.git
 to install the frontend
 ### `npm start`
 to run the frontend.
+
+# Loading Mocked Data
+
+## Data location
+MOCKDATA.json file located src/data
+## Data loading
+Set dataMocked to true in Home.js. Relaod Home Page then Reset dataMocked to false. Data is loaded
