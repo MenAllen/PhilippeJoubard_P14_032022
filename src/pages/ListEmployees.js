@@ -31,9 +31,10 @@ function ListEmployees() {
 	const columns = useMemo(() => COLUMNS, [])
 	const data = useMemo(() => employeeList, [employeeList])
 
+	console.log(columns)
+
 	return (
-		<Container fluid className="h-100 bg-color-custom">
-			<h1 className="p-5 text-center text-light">Employees List</h1>
+		<Container fluid className="h-100 bg-color-custom">			
 			<Row className="main-row justify-content-center align-items-center" bg="primary">
 				<Table columns={columns} data={data}/>
 			</Row>

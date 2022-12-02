@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import logo from "../../assets/Logo1.jpg";
+import logo from "../../assets/Logo1.webp";
 import "../../style/style.css";
 
 /**
@@ -12,7 +12,7 @@ import "../../style/style.css";
 function HomeCard() {
 	return (
 		<Card style={{ width: "18rem" }} bg="light" className="p-3 m-3 h-50">
-			<Card.Img variant="top" src={logo} />
+			<Card.Img variant="top" src={logo} alt="logo wealth health"/>
 			<Card.Body>
 				<Card.Title style={{textAlign: "center"}}>HRnet</Card.Title>
 				<Card.Text>

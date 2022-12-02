@@ -1,38 +1,29 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React, { useState } from "react";
+import Modal from "../components/Modal/Modal";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import "../style/style.css";
 
 /**
- * Error React component is called whenever
- * 			the url is not expected or
- * 			the user id requested is not known
+ * Error page is called whenever the url given is not expected
  *
- * @returns {React.ReactElement} div with error message and link to Home page
+ * @returns {React.ReactElement} modal with error message and link to Home page
  */
 
 function Error() {
-	const ErrorPageContainer = styled.div`
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		font-size: 3rem;
-		font-weight: 500;
-	`;
+	const errorColor = '#f08d3a';
+	const errorMessage = "Error ! Requested page doesn't exist";
+	const paramsModal = {bgColor: errorColor, Color: 'white', link: "/"};
+
+	const [openModal, setOpenModal] = useState(true);
 
 	return (
-		<ErrorPageContainer>
-			<h2>Erreur !</h2>
-			<p>
-				La page demandée n'existe pas
-				<br />
-				ou
-				<br />
-				n'est pas accessible
-			</p>
-			<Link to="/" style={{ color: "#ff6060", fontSize: "2rem" }}>
-				<h3>Retour sur la page d'accueil</h3>
-			</Link>
-		</ErrorPageContainer>
-	);
+		<Container fluid className="bg-color-custom">
+			<Row className="main-row justify-content-center align-items-center" bg="primary">
+				<Modal display={openModal} setDisplay={setOpenModal} message={errorMessage} params={paramsModal}/>
+			</Row>
+		</Container>
+	)
 }
 
 export default Error;

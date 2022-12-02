@@ -16,6 +16,8 @@ import "../../style/style.css";
 function CreateForm() {
 	const dispatch = useDispatch();
 	const CustomGreen = '#93AD18';
+	const paramsModal = {bgColor: CustomGreen, Color: 'white', link: ""};
+
 
 	let inputResult = "";
 
@@ -267,7 +269,7 @@ function CreateForm() {
 					</Container>
 				</Form>
 			</Col>
-			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} bgColor={CustomGreen} Color={"white"} />
+			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} params={paramsModal} />
 		</>
 	);
 }

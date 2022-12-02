@@ -37,4 +37,4 @@ to run the frontend.
 ## Data location
 MOCKDATA.json file located src/data
 ## Data loading
-Set dataMocked to true in Home.js. Relaod Home Page then Reset dataMocked to false. Data is loaded
+Set dataMocked to true in Home.js. Reload Home Page then reset dataMocked to false. Relaod again Home Page : Data is loaded from data/MOCKDATA.json

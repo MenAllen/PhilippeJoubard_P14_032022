@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./Modal.css";
 
@@ -61,12 +62,14 @@ text-align: center;
  * @prop {String} Color Button text colour
  * * @returns A React component.
  */
-export default function Modal({ display, setDisplay, message, bgColor, Color }) {
-	console.log("Modal: ", display, message, bgColor, Color);
+export default function Modal({ display, setDisplay, message, params }) {
+	console.log("Modal: ", display, message, params);
 
+	const navigate = useNavigate();
 
 	const toggleModal = () => {
 		setDisplay(!display);
+		if (params.link) navigate("/");
 	};
 
 	return (
@@ -74,7 +77,7 @@ export default function Modal({ display, setDisplay, message, bgColor, Color }) 
 			<Overlay></Overlay>
 			<ModalInfo>
 				<Message>{message}</Message>
-				<Button bgColour={bgColor} Colour={Color} onClick={toggleModal}>OK</Button>
+				<Button bgColour={params.bgColor} Colour={params.Color} onClick={toggleModal}>OK</Button>
 			</ModalInfo>
 		</div>
 	);

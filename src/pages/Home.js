@@ -21,8 +21,8 @@ const Home = () => {
 		console.log("Home useEffect: ", stateActive, dataMocked);
 
 		// If dataMocked required upload from file 
-		if (dataMocked && !stateActive) {
-			dispatch(uploadEmployees(MOCKDATA));
+		if (dataMocked) {
+			dispatch(uploadEmployees({stateActive: false, employeeList: MOCKDATA}));
 			dispatch(saveEmployees());
 			return
 		}
