@@ -12,7 +12,7 @@ import "../../style/style.css";
 function HomeCard() {
 	return (
 		<Card style={{ width: "18rem" }} bg="light" className="p-3 m-3 h-50">
-			<Card.Img variant="top" src={logo} alt="logo wealth health"/>
+			<Card.Img fetchpriority="high" width="253" height="309" variant="top" src={logo} alt="logo wealth health"/>
 			<Card.Body>
 				<Card.Title style={{textAlign: "center"}}>HRnet</Card.Title>
 				<Card.Text>

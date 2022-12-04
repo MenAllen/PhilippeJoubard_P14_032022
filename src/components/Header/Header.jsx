@@ -21,7 +21,10 @@ function Header() {
 							<img
 								alt="logo wealth health"
 								src={logo}
+								width="80"
+								height="80"
 								className="d-inline-block align-top small-size"
+								fetchpriority="high"
 							/>
 						</NavLink>
 				</Navbar>

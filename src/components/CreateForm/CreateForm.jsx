@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import Modal from "../Modal/Modal";
+import { Modal } from "@menallen/plugin-modal";
 import { addEmployee, saveEmployees } from "../../features/employeeSlice";
 import STATES from "../../data/STATES.json";
 import checkForm from "../../utils/FormValidation";
@@ -151,8 +151,8 @@ function CreateForm() {
 									placeholder="Birth Date"
 									onChange={(e) => setBirthdate(e.target.value)}
 									value={birthdate}
-									id="datemin"
-									name="datemin"
+									id="birthdatemin"
+									name="birthdatemin"
 									min="1930-01-01"
 									max="2007-01-01"
 								/>
@@ -231,8 +231,8 @@ function CreateForm() {
 									placeholder="Start Date"
 									onChange={(e) => setStartdate(e.target.value)}
 									value={startdate}
-									id="datemin"
-									name="datemin"
+									id="startdatemin"
+									name="startdatemin"
 									min="1930-01-01"
 									max="2022-12-01"
 								/>

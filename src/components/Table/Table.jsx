@@ -1,6 +1,5 @@
 import React from "react";
 import { useTable, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from "react-table";
-import { useSticky } from "react-table-sticky";
 import "./Table.css";
 
 /**

@@ -17,7 +17,6 @@ export const COLUMNS = [
 				accessor: "birthdate",
 			},
 		],
-//    sticky: "left",
 	},
 	{
 		// Second group - Location

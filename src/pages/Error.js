@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../components/Modal/Modal";
+import { Modal } from "@menallen/plugin-modal";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "../style/style.css";
