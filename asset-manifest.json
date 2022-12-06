@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/PhilippeJoubard_P14_032022/static/css/main.36bf42ad.css",
+    "main.js": "/PhilippeJoubard_P14_032022/static/js/main.8d9c5b71.js",
+    "static/js/787.b7660d0f.chunk.js": "/PhilippeJoubard_P14_032022/static/js/787.b7660d0f.chunk.js",
+    "static/media/Logo2.webp": "/PhilippeJoubard_P14_032022/static/media/Logo2.e7271aff9b67432b7cba.webp",
+    "static/media/LogoWh1.webp": "/PhilippeJoubard_P14_032022/static/media/LogoWh1.c72a4e8b413d5ce6ca39.webp",
+    "index.html": "/PhilippeJoubard_P14_032022/index.html",
+    "main.36bf42ad.css.map": "/PhilippeJoubard_P14_032022/static/css/main.36bf42ad.css.map",
+    "main.8d9c5b71.js.map": "/PhilippeJoubard_P14_032022/static/js/main.8d9c5b71.js.map",
+    "787.b7660d0f.chunk.js.map": "/PhilippeJoubard_P14_032022/static/js/787.b7660d0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36bf42ad.css",
+    "static/js/main.8d9c5b71.js"
+  ]
+}
