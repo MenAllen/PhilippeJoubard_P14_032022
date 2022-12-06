@@ -1,4 +1,4 @@
-* --------------------------------------------- */
+/* --------------------------------------------- */
 /* Table component                               */
 /* --------------------------------------------- */
 
@@ -14,7 +14,7 @@ table td, table th {
   text-align: center;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(even){background-color: #fbfbfb;}
 
 table tr:hover {background-color: #ddd;}
 
@@ -22,31 +22,37 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(147, 173, 24, 0.8);
+/*  background-color: rgb(147, 173, 24, 0.8);*/
+background-color: #515e13;
   color: white;
 }
 
 .nextBlock {
   margin-left: 1rem;
   align-self: center;
+  color: #101224;
 }
 
 .searchBlock {
   display: flex;
   flex-direction: row;
-  margin-right: 1rem;
   align-items: center;
   gap: 1rem;
 }
 
 .tableContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  overflow-x: auto!important;
-  table-layout: auto;
-  width: 85%;
+  overflow-x: auto;
 }
 
 .w-85 {
   width: 85%;
+}
+
+@media (max-width: 565px) {
+  .account {
+    flex-direction: row;
+  }
 }

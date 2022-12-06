@@ -99,10 +99,8 @@ function CreateForm() {
 
 	return (
 		<>
-			<Col md="auto" className="form-container m-5">
-				<Row>
-					<h1 className="form-title">Create Employee</h1>
-				</Row>
+		<h1 className="p-3 text-center text-dark">Create Employee</h1>
+			<Col md="auto" className="form-container m-3">
 				<Form
 					className="formular"
 					noValidate
@@ -263,7 +261,7 @@ function CreateForm() {
 						<Button type="submit" className="btn btn-success">
 							Submit
 						</Button>
-						<Button type="reset" className="btn bg-transparent">
+						<Button type="reset" className="btn bg-transparent text-dark">
 							Reset
 						</Button>
 					</Container>

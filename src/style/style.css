@@ -3,23 +3,10 @@
   width: 80px;
 }
 
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-
 .bg-color-custom {
-  background-color: rgb(94, 115, 14, 0.8);
-/*  background-color: rgba(154, 159, 135, 0.8);*/
+/*  background-color: rgb(94, 115, 14, 0.8);*/
+/* background-color: #A4B95B;*/
+background-color:#96AB49;
 }
 
 /* --------------------------------------------- */
@@ -35,7 +22,7 @@ header {
 
 .nav-item {
   text-decoration: none;
-  color: rgb(94, 115, 14, 0.8) !important;
+  color: rgb(89,110,15,1);
   margin-right: 1rem;
   padding-top: 0.5rem;
   font-weight: 700;

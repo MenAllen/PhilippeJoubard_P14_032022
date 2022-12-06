@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import logo from "../../assets/Logo1.webp";
+import logo from "../../assets/Logo2.webp";
 import "../../style/style.css";
 
 /**

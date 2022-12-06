@@ -73,8 +73,9 @@ export default function Table({ columns, data }) {
 
 	return (
 		<>
-			<h1 className="p-3 text-center text-light">Employees List</h1>
-			<div className="d-inline-flex justify-content-between flex-wrap w-85 m-3">
+			<h1 className="p-3 text-center text-dark">List Employees</h1>
+			
+			<div className="d-inline-flex justify-content-between flex-wrap w-85 my-3 p-0">
 				<div className="pagination">
 					<select
 						value={pageSize}
@@ -98,8 +99,8 @@ export default function Table({ columns, data }) {
 				/>
 			</div>
 
-			<div className="table-responsive p-0 w-85 h-75">
-				<table {...getTableProps()} className="w-100" >
+			<div className="tableContainer m-0 p-0 w-85 h-75">
+				<table {...getTableProps()} className="m-0">
 					<thead>
 						{headerGroups.map((headerGroup) => (
 							<tr {...headerGroup.getHeaderGroupProps()}>
