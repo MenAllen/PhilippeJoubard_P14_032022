@@ -25,7 +25,7 @@ function ListEmployees() {
 			dispatch(uploadEmployees(JSON.parse(localStorage.getItem("employeeList"))));
 		}
 		dispatch(activateState());
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	// data needs to be updated when page refresh
 	const columns = useMemo(() => COLUMNS, [])

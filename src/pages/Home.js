@@ -33,7 +33,7 @@ const Home = () => {
 		}
 
 		dispatch(activateState());
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<Container fluid className="bg-color-custom">

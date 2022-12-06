@@ -24,7 +24,7 @@ const CreateEmployee = () => {
 		}
 
 		dispatch(activateState());
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<Container fluid className="h-100 bg-color-custom">
