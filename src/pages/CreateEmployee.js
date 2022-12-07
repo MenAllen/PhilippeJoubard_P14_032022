@@ -16,8 +16,6 @@ const CreateEmployee = () => {
 
 	// Update state if state redux empty
 	useEffect(() => {
-		console.log("Create Employees useEffect: ", stateActive);
-
 		// if state empty & employeeList exists in localStorage, then upload state
 		if (!stateActive && localStorage.getItem("employeeList")) {
 			dispatch(uploadEmployees(JSON.parse(localStorage.getItem("employeeList"))));

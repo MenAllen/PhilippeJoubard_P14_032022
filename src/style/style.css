@@ -1,14 +1,3 @@
-.small-size {
-  height: 80px;
-  width: 80px;
-}
-
-.bg-color-custom {
-/*  background-color: rgb(94, 115, 14, 0.8);*/
-/* background-color: #A4B95B;*/
-background-color:#96AB49;
-}
-
 /* --------------------------------------------- */
 /* Header component                              */
 /* --------------------------------------------- */
@@ -83,4 +72,18 @@ header {
   font-size: 1.5rem;
   color: white;
   text-align: center;
+}
+
+/* --------------------------------------------- */
+/* Miscellaneous                                 */
+/* --------------------------------------------- */
+.small-size {
+  height: 80px;
+  width: 80px;
+}
+
+.bg-color-custom {
+/*  background-color: rgb(94, 115, 14, 0.8);*/
+/* background-color: #A4B95B;*/
+background-color:#96AB49;
 }

@@ -35,6 +35,11 @@ to run the frontend.
 # Loading Mocked Data
 
 ## Data location
-MOCKDATA.json file located src/data
+MOCKDATA.json file located src/data with 50 employees.
+A file called MOCKDATA1000.json with 1000 employees is also available, can be used after renaming to MOCKDATA.json
 ## Data loading
-Set dataMocked to true in Home.js. Reload Home Page then reset dataMocked to false. Relaod again Home Page : Data is loaded from data/MOCKDATA.json
+To load the employees from MOCKDATA.json:
+1) Set boolean "dataMocked" to true in Home.js
+2) Reload Home Page (do it only once, otherwise 50 more will be added)
+3) Reset boolean "dataMocked" to false in Home.js
+4) Relaod again Home Page : Data is loaded in store Redux from local storage

@@ -18,13 +18,11 @@ const Home = () => {
 
 	// Update state if state redux empty
 	useEffect(() => {
-		console.log("Home useEffect: ", stateActive, dataMocked);
-
-		// If dataMocked required upload from file 
+		// If dataMocked required upload from file
 		if (dataMocked) {
-			dispatch(uploadEmployees({stateActive: false, employeeList: MOCKDATA}));
+			dispatch(uploadEmployees({ stateActive: false, employeeList: MOCKDATA }));
 			dispatch(saveEmployees());
-			return
+			return;
 		}
 
 		// if state empty & employeeList exists in localStorage, then upload state

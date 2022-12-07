@@ -15,9 +15,8 @@ import "../../style/style.css";
  */
 function CreateForm() {
 	const dispatch = useDispatch();
-	const CustomGreen = '#93AD18';
-	const paramsModal = {bgColor: CustomGreen, Color: 'white', link: ""};
-
+	const CustomGreen = "#93AD18";
+	const paramsModal = { bgColor: CustomGreen, Color: "white", link: "" };
 
 	let inputResult = "";
 
@@ -64,9 +63,7 @@ function CreateForm() {
 		e.preventDefault();
 		const form = e.currentTarget;
 
-		console.log("handleSubmit: ", inputValue);
 		if (form.checkValidity() === false) {
-			console.log("checkValidity false");
 			e.stopPropagation();
 			setValidated(true);
 			return;
@@ -74,7 +71,6 @@ function CreateForm() {
 
 		setValidated(true);
 		inputResult = checkForm(inputValue);
-		console.log("inputResult: ", inputResult);
 		setMessageModal(inputResult);
 		if (inputResult === "Employee successfully created !") {
 			dispatch(addEmployee(inputValue));
@@ -90,7 +86,6 @@ function CreateForm() {
 	}
 
 	function handleReset(e) {
-		console.log("handleReset");
 		e.preventDefault();
 		resetInputValues();
 		setValidated(false);
@@ -99,7 +94,7 @@ function CreateForm() {
 
 	return (
 		<>
-		<h1 className="p-3 text-center text-dark">Create Employee</h1>
+			<h1 className="p-3 text-center text-dark">Create Employee</h1>
 			<Col md="auto" className="form-container m-3">
 				<Form
 					className="formular"
@@ -120,7 +115,7 @@ function CreateForm() {
 									maxLength={50}
 									pattern="^[( )a-zA-Z]+$"
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
 								</Form.Control.Feedback>
 							</Form.Group>
@@ -135,7 +130,7 @@ function CreateForm() {
 									maxLength={50}
 									pattern="^[( )a-zA-Z]+$"
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
 								</Form.Control.Feedback>
 							</Form.Group>
@@ -154,7 +149,7 @@ function CreateForm() {
 									min="1930-01-01"
 									max="2007-01-01"
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be at least 15 years old
 								</Form.Control.Feedback>
 							</Form.Group>
@@ -172,7 +167,9 @@ function CreateForm() {
 									minLength={2}
 									maxLength={50}
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">must be 2 to 50 chars</Form.Control.Feedback>
+								<Form.Control.Feedback className="text-dark" type="invalid">
+									must be 2 to 50 chars
+								</Form.Control.Feedback>
 							</Form.Group>
 							<Form.Group as={Col} className="mb-3">
 								<Form.Label>City</Form.Label>
@@ -184,7 +181,9 @@ function CreateForm() {
 									minLength={2}
 									maxLength={50}
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">must be 2 to 50 chars</Form.Control.Feedback>
+								<Form.Control.Feedback className="text-dark" type="invalid">
+									must be 2 to 50 chars
+								</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 						<Row>
@@ -200,7 +199,7 @@ function CreateForm() {
 										);
 									})}
 								</Form.Select>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									Select State
 								</Form.Control.Feedback>
 							</Col>
@@ -215,7 +214,9 @@ function CreateForm() {
 									min={10000}
 									max={99999}
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">must be 5 numbers</Form.Control.Feedback>
+								<Form.Control.Feedback className="text-dark" type="invalid">
+									must be 5 numbers
+								</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
 					</Container>
@@ -234,7 +235,7 @@ function CreateForm() {
 									min="1930-01-01"
 									max="2022-12-01"
 								/>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be at least 15 years old
 								</Form.Control.Feedback>
 							</Form.Group>
@@ -251,7 +252,7 @@ function CreateForm() {
 									<option value="Human Resources">Human Resources</option>
 									<option value="Legal">Legal</option>
 								</Form.Select>
-								<Form.Control.Feedback className='text-dark' type="invalid">
+								<Form.Control.Feedback className="text-dark" type="invalid">
 									Select Department
 								</Form.Control.Feedback>
 							</Col>
@@ -267,7 +268,12 @@ function CreateForm() {
 					</Container>
 				</Form>
 			</Col>
-			<Modal display={openModal} setDisplay={setOpenModal} message={messageModal} params={paramsModal} />
+			<Modal
+				display={openModal}
+				setDisplay={setOpenModal}
+				message={messageModal}
+				params={paramsModal}
+			/>
 		</>
 	);
 }

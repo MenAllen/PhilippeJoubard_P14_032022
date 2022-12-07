@@ -1,43 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 /**
  * initial state initialisation
  */
 const initialState = { stateActive: false, employeeList: [] };
 
 /**
- *  Redux create employee slice creation, part of Redux store. It includes
+ *  Redux employee slice creation, part of Redux store. It includes
  *    Initial state
  *    Reducers :
- *      addEmployee
- * 			saveEMployees
- * 			uploadEmployees
+ *      addEmployee			load employee in Redux store
+ * 			saveEmployees		load employeeList in localStorage	
+ * 			uploadEmployees load employeeList from localStorage to Redux, on each page reload if required
+ * 			activateState 	set stateActive to true when app is running (called on each page relaod)
+ * 			
  */
 const employeeSlice = createSlice({
 	name: "employee",
 	initialState,
 	reducers: {
 		addEmployee: (state, { payload }) => {
-			console.log("addEmployee: ", payload, state.employeeList)
-			state.employeeList.push(payload)
+			state.employeeList.push(payload);
 		},
 		saveEmployees: (state) => {
-			console.log("saveEmployees: ", state)
 			localStorage.setItem("employeeList", JSON.stringify(state));
 		},
 		uploadEmployees: (state, { payload }) => {
-			console.log("uploadEmployees: ", payload)
-			payload.employeeList.map((elt) => state.employeeList.push(elt))
+			payload.employeeList.map((elt) => state.employeeList.push(elt));
 		},
 		activateState: (state) => {
-			console.log("activateState")
-			state.stateActive = true
-		}
+			state.stateActive = true;
+		},
 	},
 });
 
-export const {
-	addEmployee, saveEmployees, uploadEmployees, activateState
-} = employeeSlice.actions;
+export const { addEmployee, saveEmployees, uploadEmployees, activateState } = employeeSlice.actions;
 export default employeeSlice.reducer;

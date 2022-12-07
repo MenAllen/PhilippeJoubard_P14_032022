@@ -9,7 +9,7 @@ import { COLUMNS } from "../data/COLUMNS";
 
 /**
  * ListEmployee is a function that returns a Container including a Table containing the list of Employees
- * 
+ *
  * @returns A Container with EMployee Table.
  */
 function ListEmployees() {
@@ -18,8 +18,6 @@ function ListEmployees() {
 
 	// Update state if state redux empty
 	useEffect(() => {
-		console.log("List Employees useEffect: ", stateActive);
-
 		// if state empty & employeeList exists in localStorage, then upload state
 		if (!stateActive && localStorage.getItem("employeeList")) {
 			dispatch(uploadEmployees(JSON.parse(localStorage.getItem("employeeList"))));
@@ -28,15 +26,13 @@ function ListEmployees() {
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	// data needs to be updated when page refresh
-	const columns = useMemo(() => COLUMNS, [])
-	const data = useMemo(() => employeeList, [employeeList])
-
-	console.log(columns)
+	const columns = useMemo(() => COLUMNS, []);
+	const data = useMemo(() => employeeList, [employeeList]);
 
 	return (
-		<Container fluid className="h-100 bg-color-custom">			
+		<Container fluid className="h-100 bg-color-custom">
 			<Row className="main-row justify-content-center align-items-center" bg="primary">
-				<Table columns={columns} data={data}/>
+				<Table columns={columns} data={data} />
 			</Row>
 		</Container>
 	);

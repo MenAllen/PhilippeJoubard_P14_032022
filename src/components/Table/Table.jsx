@@ -14,9 +14,9 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 
 	return (
 		<div className="searchBlock">
-			<strong>Search: </strong>
+			<strong>Search</strong>
 			<input
-				className="form-control ml-2"
+				className="form-control ml-2 border border-secondary"
 				value={value || ""}
 				onChange={(e) => {
 					setValue(e.target.value);
@@ -29,19 +29,40 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 }
 
 /**
+ * Column hiding Function
+ */
+const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
+	const defaultRef = React.useRef();
+	const resolvedRef = ref || defaultRef;
+
+	React.useEffect(() => {
+		resolvedRef.current.indeterminate = indeterminate;
+	}, [resolvedRef, indeterminate]);
+
+	return <input type="checkbox" ref={resolvedRef} {...rest} />;
+});
+
+/**
  *  DisplayList is a React component in charge of displaying the employees created and their characteristics
  *
  *  @returns a Table with Employees created
  */
 export default function Table({ columns, data }) {
+	const [displayColumnsBar, setDisplayColumnsBar] = React.useState(false);
+
+	const toggleColumnsBar = () => {
+		setDisplayColumnsBar(!displayColumnsBar);
+	};
+
 	// Use the useTable Hook to send the columns and data to build the table
 	const {
 		page,
 		getTableProps, // table props from react-table
 		getTableBodyProps, // table body props from react-table
 		headerGroups, // headerGroups, if your table has groupings
-		rows, // rows for the table based on the data passed
 		prepareRow, // Prepare the row (this function needs to be called for each row before getting the row props)
+		allColumns,
+		getToggleHideAllColumnsProps,
 		state,
 		preGlobalFilteredRows,
 		setGlobalFilter,
@@ -62,35 +83,53 @@ export default function Table({ columns, data }) {
 		},
 		useGlobalFilter,
 		useSortBy,
-		usePagination,
-//    useSticky
+		usePagination
 	);
 
-	//  const initRow = rows.slice(0, data.length)
-
-	console.log("Table data: ", data);
-	console.log("rows: ", rows);
-
+	// Render the UI for the table
 	return (
 		<>
-			<h1 className="p-3 text-center text-dark">List Employees</h1>
-			
+			<div className="d-inline-flex justify-content-center flex-wrap position-relative w-85 my-3 p-0">
+				<h1 className="p-3 text-center text-dark">List Employees</h1>
+				<div className="selectColumns">
+					<div className={displayColumnsBar ? "columnsBar active" : "columnsBar"}>
+						{allColumns.map((column) => (
+							<div key={column.id}>
+								<label>
+									<input className="checkbox" type="checkbox" {...column.getToggleHiddenProps()} />{" "}
+									{column.id}
+								</label>
+							</div>
+						))}
+						<div>
+							<IndeterminateCheckbox {...getToggleHideAllColumnsProps()} /> Toggle All
+						</div>
+					</div>
+					<button
+						className={displayColumnsBar ? "customBtn" : "customBtn rndCorner"}
+						type="button"
+						title="Hide column(s)"
+						onClick={toggleColumnsBar}>
+						{displayColumnsBar ? "X" : "COL"}
+					</button>
+				</div>
+			</div>
+
 			<div className="d-inline-flex justify-content-between flex-wrap w-85 my-3 p-0">
-				<div className="pagination">
+				<div className="searchBlock">
+					<strong>Show&ensp;</strong>
 					<select
+						className="ml-2"
 						value={pageSize}
 						onChange={(e) => {
 							setPageSize(Number(e.target.value));
 						}}>
 						{[5, 10, 20, 30, 50].map((pageSize) => (
 							<option key={pageSize} value={pageSize}>
-								Show {pageSize}
+								{pageSize} entries
 							</option>
 						))}
 					</select>
-					<div className="nextBlock">
-						<strong>entries</strong>
-					</div>
 				</div>
 				<GlobalFilter
 					preGlobalFilteredRows={preGlobalFilteredRows}

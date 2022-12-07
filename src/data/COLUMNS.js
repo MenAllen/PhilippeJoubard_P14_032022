@@ -1,10 +1,14 @@
+/* --------------------------------------------------------------- */
+/* Columns definition used by React Table for displaying Employees */
+/* --------------------------------------------------------------- */
+
 export const COLUMNS = [
 	{
 		// first group - Identity
 		Header: "Employee Identity",
-    // First group columns
+		// First group columns
 		columns: [
-			{ 
+			{
 				Header: "First Name",
 				accessor: "firstname",
 			},

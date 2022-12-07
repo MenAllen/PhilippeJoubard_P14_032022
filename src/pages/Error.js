@@ -11,19 +11,24 @@ import "../style/style.css";
  */
 
 function Error() {
-	const errorColor = '#f08d3a';
+	const errorColor = "#f08d3a";
 	const errorMessage = "Error ! Requested page doesn't exist";
-	const paramsModal = {bgColor: errorColor, Color: 'white', link: "/"};
+	const paramsModal = { bgColor: errorColor, Color: "white", link: "/" };
 
 	const [openModal, setOpenModal] = useState(true);
 
 	return (
 		<Container fluid className="bg-color-custom">
 			<Row className="main-row justify-content-center align-items-center" bg="primary">
-				<Modal display={openModal} setDisplay={setOpenModal} message={errorMessage} params={paramsModal}/>
+				<Modal
+					display={openModal}
+					setDisplay={setOpenModal}
+					message={errorMessage}
+					params={paramsModal}
+				/>
 			</Row>
 		</Container>
-	)
+	);
 }
 
 export default Error;
