@@ -27,7 +27,7 @@ export default function checkForm(data) {
 	}
 
 	if (!validStartDate(data.startdate, data.birthdate)) {
-		return "Start date must be consistent with birth date";
+		return "Start date must be at least 15 years after birthDate";
 	}
 
 	return "Employee successfully created !";

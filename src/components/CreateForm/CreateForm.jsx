@@ -17,6 +17,8 @@ function CreateForm() {
 	const dispatch = useDispatch();
 	const CustomGreen = "#93AD18";
 	const paramsModal = { bgColor: CustomGreen, Color: "white", link: "" };
+	const dateToday = new Date();
+	const yearToday = dateToday.getFullYear();
 
 	let inputResult = "";
 
@@ -146,8 +148,8 @@ function CreateForm() {
 									value={birthdate}
 									id="birthdatemin"
 									name="birthdatemin"
-									min="1930-01-01"
-									max="2007-01-01"
+									min={yearToday-80 + "-12-31"}
+									max={yearToday-15 + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be at least 15 years old
@@ -231,9 +233,9 @@ function CreateForm() {
 									onChange={(e) => setStartdate(e.target.value)}
 									value={startdate}
 									id="startdatemin"
-									name="startdatemin"
-									min="1930-01-01"
-									max="2022-12-01"
+									name="startdatemin"									
+									min={yearToday-80 + "-12-31"}
+									max={yearToday + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be at least 15 years old
@@ -246,11 +248,11 @@ function CreateForm() {
 									required
 									value={department}>
 									<option value="">Select Department</option>
-									<option value="Sales">Sales</option>
-									<option value="Marketing">Marketing</option>
 									<option value="Engineering">Engineering</option>
 									<option value="Human Resources">Human Resources</option>
 									<option value="Legal">Legal</option>
+									<option value="Marketing">Marketing</option>
+									<option value="Sales">Sales</option>
 								</Form.Select>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									Select Department

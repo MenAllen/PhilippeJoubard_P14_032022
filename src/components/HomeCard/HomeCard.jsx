@@ -11,7 +11,7 @@ import "../../style/style.css";
  */
 function HomeCard() {
 	return (
-		<Card style={{ width: "18rem" }} bg="light" className="p-3 m-3 h-50">
+		<Card style={{ width: "18rem" }} bg="light" className="p-3 m-3 h-50" >
 			<Card.Img
 				fetchpriority="high"
 				width="253"

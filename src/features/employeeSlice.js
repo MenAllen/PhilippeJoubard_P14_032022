@@ -10,10 +10,10 @@ const initialState = { stateActive: false, employeeList: [] };
  *    Initial state
  *    Reducers :
  *      addEmployee			load employee in Redux store
- * 			saveEmployees		load employeeList in localStorage	
+ * 			saveEmployees		load employeeList in localStorage
  * 			uploadEmployees load employeeList from localStorage to Redux, on each page reload if required
  * 			activateState 	set stateActive to true when app is running (called on each page relaod)
- * 			
+ *
  */
 const employeeSlice = createSlice({
 	name: "employee",
