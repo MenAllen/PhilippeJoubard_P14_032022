@@ -13,7 +13,9 @@ Step 2 : Select one of the JQuery plugin, and build a React plugin
  - React Create App
  - React V1.8 (Router V6.3)
  - React-Redux V8
+ - Redux V4
  - @ReduxJS/Toolkit V1
+ - Redux-persist V6
  - Bootstrap V5
  - React-Bootstrap V2
  - React-Table
@@ -40,13 +42,13 @@ App is available from https://sparkling-elf-38d7d4.netlify.app/
 
 ## Data location
 MOCKDATA.json file located src/data with 50 employees.
-A file called MOCKDATA1000.json with 1000 employees is also available, can be used after renaming to MOCKDATA.json
+A file called MOCKDATA1000.json have with 1000 employees is also available, can be used after renaming to MOCKDATA.json
 ## Data loading
 To load the employees from MOCKDATA.json:
-1) Navigate to the page 'Create Employee'
+1) Navigate to the page 'List Employees'
 2) Click on 'Pop' button in the bottom left
 3) A modal pops up to indicate table has been populated
-4) Note employees will be added each time you click on this button
+4) Note a clear store is performed before each populate, so a second click will not add more employees
 
 ## Jsdoc
 JSDoc is available in jsdoc directory. Launch index.html (located in jsdoc directory) to vizualize the code documentation.

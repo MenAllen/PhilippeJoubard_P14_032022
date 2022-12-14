@@ -88,6 +88,118 @@
 .populateBtn.hidden {
   display: none;
 }
+
+/* --------------------------------------------- */
+/* Table component                               */
+/* --------------------------------------------- */
+table {
+	border-collapse: collapse;
+	margin: 2rem;
+}
+
+table td,
+table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}
+
+table tr:nth-child(even) {
+	background-color: #fbfbfb;
+}
+
+table tr:hover {
+	background-color: #ddd;
+}
+
+table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #515e13;
+	color: white;
+}
+
+.tableContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow-x: auto;
+}
+
+.w-85 {
+	width: 85%;
+}
+
+/* ---------------------------------------------- */
+/* Title container : title & column button        */
+/* ---------------------------------------------- */
+.selectColumns {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	right: 0;
+	top: 29%;
+}
+
+.customBtn {
+	width: 50px;
+	height: 30px;
+	padding: 0;
+	background-color: #515e13;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	color: white;
+	font-weight: 600;
+}
+
+.rndCorner {
+	border-radius: 5px;
+}
+
+.columnsBar {
+	display: none;
+	border: 1px solid #515e13;
+	border-radius: 5px 0 5px 5px;
+	background-color: #fbfbfb;
+	width: auto;
+	height: auto;
+	padding: 0 5px;
+}
+
+.columnsBar.active {
+	display: block;
+}
+
+.searchBlock {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	margin: 0.5rem 0;
+}
+
+/* Reset default browser style for checkbox before applying custom style */
+input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+input[type="checkbox"] {
+	border-radius: 2px;
+	height: 15px;
+	width: 15px;
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+input[type="checkbox"]:checked {
+	background: #515e13;
+	margin: 0px;
+}
+
 /* --------------------------------------------- */
 /* Miscellaneous                                 */
 /* --------------------------------------------- */

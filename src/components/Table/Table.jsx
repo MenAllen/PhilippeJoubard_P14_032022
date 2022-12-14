@@ -1,7 +1,8 @@
 import React from "react";
 import propTypes from "prop-types";
+import Populate from "../Populate/Populate";
 import { useTable, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from "react-table";
-import "./Table.css";
+import "../../style/style.css";
 
 /**
  * Global Filtering Function
@@ -42,7 +43,6 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 
 	return <input type="checkbox" ref={resolvedRef} {...rest} />;
 });
-
 
 /**
  *  Table is a React component in charge of displaying the list of employees.
@@ -174,28 +174,31 @@ export default function Table({ columns, data }) {
 				</table>
 			</div>
 
-			<div className="d-inline-flex justify-content-end w-75 m-3">
-				<div>
-					<button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-						{"<<"}
-					</button>{" "}
-					<button onClick={() => previousPage()} disabled={!canPreviousPage}>
-						{"<"}
-					</button>{" "}
-					<button onClick={() => nextPage()} disabled={!canNextPage}>
-						{">"}
-					</button>{" "}
-					<button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-						{">>"}
-					</button>{" "}
-				</div>
-				<div className="nextBlock">
-					<span>
-						<strong> Page </strong>
-						<strong>
-							{pageIndex + 1} of {pageOptions.length}
-						</strong>{" "}
-					</span>
+			<div className="d-inline-flex justify-content-between align-items-center flex-wrap w-85 my-3 p-0">
+				<Populate />
+				<div className="d-inline-flex justify-content-end w-75 m-3">
+					<div>
+						<button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+							{"<<"}
+						</button>{" "}
+						<button onClick={() => previousPage()} disabled={!canPreviousPage}>
+							{"<"}
+						</button>{" "}
+						<button onClick={() => nextPage()} disabled={!canNextPage}>
+							{">"}
+						</button>{" "}
+						<button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+							{">>"}
+						</button>{" "}
+					</div>
+					<div className="nextBlock">
+						<span>
+							<strong> Page </strong>
+							<strong>
+								{pageIndex + 1} of {pageOptions.length}
+							</strong>{" "}
+						</span>
+					</div>
 				</div>
 			</div>
 		</>
@@ -204,5 +207,5 @@ export default function Table({ columns, data }) {
 
 Table.propTypes = {
 	columns: propTypes.array.isRequired,
-	data: propTypes.array.isRequired
+	data: propTypes.array.isRequired,
 };

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { Modal } from "@menallen/plugin-modal";
-import { addEmployee, saveEmployees } from "../../features/employeeSlice";
+import { addEmployee } from "../../features/employeeSlice";
 import STATES from "../../data/STATES.json";
 import checkForm from "../../utils/FormValidation";
 import "../../style/style.css";
@@ -82,7 +82,6 @@ function CreateForm() {
 		setMessageModal(inputResult);
 		if (inputResult === "Employee successfully created !") {
 			dispatch(addEmployee(inputValue));
-			dispatch(saveEmployees());
 			resetInputValues();
 			e.target.reset();
 			setOpenModal(true);
@@ -120,7 +119,7 @@ function CreateForm() {
 									placeholder="Firstname"
 									onChange={(e) => setFirstname(e.target.value)}
 									value={firstname}
-									pattern="^[( )a-zA-Z_-éèàêôâîûüù]{2,50}$"
+									pattern="^[( )a-zA-Z_-éèàêôâîûüù-]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
@@ -133,7 +132,7 @@ function CreateForm() {
 									placeholder="Lastname"
 									onChange={(e) => setLastname(e.target.value)}
 									value={lastname}
-									pattern="^[( )a-zA-Z_-éèàêôâîûüù]{2,50}$"
+									pattern="^[( )a-zA-Z_éèàêôâîûüù-]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
@@ -169,7 +168,7 @@ function CreateForm() {
 									placeholder="Street"
 									onChange={(e) => setStreet(e.target.value)}
 									value={street}
-									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù]{2,50}$"
+									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù-]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars
@@ -182,7 +181,7 @@ function CreateForm() {
 									placeholder="City"
 									onChange={(e) => setCity(e.target.value)}
 									value={city}
-									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù]{2,50}$"
+									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù-]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars
