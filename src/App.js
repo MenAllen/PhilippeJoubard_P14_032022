@@ -9,6 +9,11 @@ import Home from "./pages/Home";
 import CreateEmployee from "./pages/CreateEmployee";
 import ListEmployees from "./pages/ListEmployees";
 
+/**
+ * The App function returns a div with a Router component, including a Header component,
+ * Route components and a footer component.There are 4 Route components , each with a path and an element.
+ * @returns The return statement is returning a div, the JSX code that will be rendered to the DOM.
+ */
 function App() {
 	return (
 		<Provider store={store}>

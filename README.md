@@ -21,6 +21,8 @@ Step 2 : Select one of the JQuery plugin, and build a React plugin
  - Prettier Code formater
  - Styled-Components
  - P42 code analyser
+ - JsDoc
+ - Jest
 
 
 # Getting Started
@@ -31,6 +33,8 @@ clone this repo https://github.com/MenAllen/PhilippeJoubard_P14_032022.git
 to install the frontend
 ### `npm start`
 to run the frontend.
+### Netlify
+App is available from https://sparkling-elf-38d7d4.netlify.app/
 
 # Loading Mocked Data
 
@@ -39,7 +43,14 @@ MOCKDATA.json file located src/data with 50 employees.
 A file called MOCKDATA1000.json with 1000 employees is also available, can be used after renaming to MOCKDATA.json
 ## Data loading
 To load the employees from MOCKDATA.json:
-1) Set boolean "dataMocked" to true in Home.js
-2) Reload Home Page (do it only once, otherwise 50 more will be added)
-3) Reset boolean "dataMocked" to false in Home.js
-4) Relaod again Home Page : Data is loaded in store Redux from local storage
+1) Navigate to the page 'Create Employee'
+2) Click on 'Pop' button in the bottom left
+3) A modal pops up to indicate table has been populated
+4) Note employees will be added each time you click on this button
+
+## Jsdoc
+JSDoc is available in jsdoc directory. Launch index.html (located in jsdoc directory) to vizualize the code documentation.
+
+## Jest
+'npm run test' to run Jest tests 
+

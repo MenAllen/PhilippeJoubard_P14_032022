@@ -4,6 +4,7 @@ import { store } from "../store";
 import Error from "../pages/Error";
 import { render, screen } from "@testing-library/react";
 
+
 describe("Home", () => {
 	test("Should render without crash", async () => {
 		render(

@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import { useTable, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from "react-table";
 import "./Table.css";
 
@@ -42,10 +43,16 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 	return <input type="checkbox" ref={resolvedRef} {...rest} />;
 });
 
+
 /**
- *  DisplayList is a React component in charge of displaying the employees created and their characteristics
+ *  Table is a React component in charge of displaying the list of employees.
+ *  It is based on bootstrap react Table.
+ *	It includes table facilities : sort, search, pagination & column hiding
  *
- *  @returns a Table with Employees created
+ *  @prop {colums} includes the colums name for the table header
+ * 				{ data } includes the content of the table
+ *
+ *  @returns a div including the Table with columns header and the employees data
  */
 export default function Table({ columns, data }) {
 	const [displayColumnsBar, setDisplayColumnsBar] = React.useState(false);
@@ -79,7 +86,7 @@ export default function Table({ columns, data }) {
 		{
 			columns,
 			data,
-			initialState: { pageIndex: 0, pageSize: 5 },
+			initialState: { pageIndex: 0, pageSize: 10 },
 		},
 		useGlobalFilter,
 		useSortBy,
@@ -124,7 +131,7 @@ export default function Table({ columns, data }) {
 						onChange={(e) => {
 							setPageSize(Number(e.target.value));
 						}}>
-						{[5, 10, 20, 30, 50].map((pageSize) => (
+						{[10, 25, 50, 100].map((pageSize) => (
 							<option key={pageSize} value={pageSize}>
 								{pageSize} entries
 							</option>
@@ -194,3 +201,8 @@ export default function Table({ columns, data }) {
 		</>
 	);
 }
+
+Table.propTypes = {
+	columns: propTypes.array.isRequired,
+	data: propTypes.array.isRequired
+};

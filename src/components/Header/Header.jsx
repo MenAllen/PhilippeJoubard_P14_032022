@@ -7,13 +7,14 @@ import logo from "../../assets/LogoWh.webp";
 import "../../style/style.css";
 
 /**
- *  Header is a React component in charge of displaying header part of all pages
- *  depending on the connected state, it will display specific navigation menu
- *
- *  @returns a nav with navigation menu
+ * Header is a React component returning a header element with two nav elements inside of it: 
+ * first a link to the home page, second a link to home page, create employee page and list employee page
+ * 
+ * @returns A header element with nav menu.
  */
 function Header() {
 	return (
+		<header>
 		<Navbar bg="light" expand="md">
 			<Container className="justify-content-between">
 				<Navbar bg="light">
@@ -44,6 +45,7 @@ function Header() {
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
+		</header>
 	);
 }
 

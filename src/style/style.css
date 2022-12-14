@@ -1,10 +1,6 @@
 /* --------------------------------------------- */
 /* Header component                              */
 /* --------------------------------------------- */
-header {
-  position: fixed;
-}
-
 .right-aligned {
   flex-grow: 0 !important
 }
@@ -74,6 +70,24 @@ header {
   text-align: center;
 }
 
+/* --------------------------------------------- */
+/* Populate component                            */
+/* --------------------------------------------- */
+.populateBtn {
+	width: 50px;
+	height: 30px;
+	padding: 0;
+	background-color: #515e13;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	color: white;
+	font-weight: 600;
+	border-radius: 5px;
+}
+
+.populateBtn.hidden {
+  display: none;
+}
 /* --------------------------------------------- */
 /* Miscellaneous                                 */
 /* --------------------------------------------- */

@@ -7,10 +7,11 @@ import Table from "../components/Table/Table";
 import "../style/style.css";
 import { COLUMNS } from "../data/COLUMNS";
 
+
 /**
- * ListEmployee is a function that returns a Container including a Table containing the list of Employees
- *
- * @returns A Container with EMployee Table.
+ * ListEmployees is a function that returns a React container including a table with list of employees.
+ * 
+ * @returns A Container with Table displaying table list of employees.
  */
 function ListEmployees() {
 	const { employeeList, stateActive } = useSelector((state) => state.employee);
@@ -30,11 +31,13 @@ function ListEmployees() {
 	const data = useMemo(() => employeeList, [employeeList]);
 
 	return (
-		<Container fluid className="h-100 bg-color-custom">
-			<Row className="main-row justify-content-center align-items-center" bg="primary">
-				<Table columns={columns} data={data} />
-			</Row>
-		</Container>
+		<section role="contentinfo" aria-label="List Employees table page">
+			<Container fluid className="h-100 bg-color-custom">
+				<Row className="main-row justify-content-center align-items-center" bg="primary">
+					<Table columns={columns} data={data} />
+				</Row>
+			</Container>
+		</section>
 	);
 }
 

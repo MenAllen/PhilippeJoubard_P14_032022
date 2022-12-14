@@ -31,5 +31,6 @@ describe("Home", () => {
     expect(screen.getByText("Information")).toBeTruthy();
     expect(screen.getByText('Start Date')).toBeTruthy();
     expect(screen.getByText('Department')).toBeTruthy();
+    
 	});
 });

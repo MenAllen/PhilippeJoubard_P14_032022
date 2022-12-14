@@ -8,10 +8,13 @@ import STATES from "../../data/STATES.json";
 import checkForm from "../../utils/FormValidation";
 import "../../style/style.css";
 
+
 /**
- *  CreateForm is a React component in charge of displaying form to create en employee
+ *  CreateForm is a React component in charge of displaying the form to declare an employee.
+ * 	It includes reset button to clear the form and submit button to launch employee creation.
+ *  It also includes a Modal to popup messages on submit if required
  *
- *  @returns a validated form (react-bootstrap)
+ *  @returns a div including the Form based on Bootstrap React and a Modal plugin
  */
 function CreateForm() {
 	const dispatch = useDispatch();
@@ -20,6 +23,7 @@ function CreateForm() {
 	const dateToday = new Date();
 	const yearToday = dateToday.getFullYear();
 
+	// The string describing the result of the form submit
 	let inputResult = "";
 
 	// Hook states declaration & initialisation
@@ -36,6 +40,7 @@ function CreateForm() {
 	const [openModal, setOpenModal] = useState(false);
 	const [messageModal, setMessageModal] = useState("");
 
+	// The object values retrieved from the form
 	const inputValue = {
 		firstname,
 		lastname,
@@ -48,6 +53,7 @@ function CreateForm() {
 		department,
 	};
 
+	// The object values resetted to clear the form
 	function resetInputValues() {
 		setFirstname("");
 		setLastname("");
@@ -60,7 +66,7 @@ function CreateForm() {
 		setDepartment("");
 	}
 
-	// Manage form validation when submit button pressed
+	// The handleSubmit function called on clicking submit button
 	function handleSubmit(e) {
 		e.preventDefault();
 		const form = e.currentTarget;
@@ -87,13 +93,14 @@ function CreateForm() {
 		if (inputResult !== "") setOpenModal(true);
 	}
 
+	// The handleReset function called on clicking reset button
 	function handleReset(e) {
 		e.preventDefault();
 		resetInputValues();
 		setValidated(false);
-		e.target.reset();
 	}
 
+	// the Form and Modal HTML display
 	return (
 		<>
 			<h1 className="p-3 text-center text-dark">Create Employee</h1>
@@ -113,9 +120,7 @@ function CreateForm() {
 									placeholder="Firstname"
 									onChange={(e) => setFirstname(e.target.value)}
 									value={firstname}
-									minLength={2}
-									maxLength={50}
-									pattern="^[( )a-zA-Z]+$"
+									pattern="^[( )a-zA-Z_-éèàêôâîûüù]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
@@ -128,9 +133,7 @@ function CreateForm() {
 									placeholder="Lastname"
 									onChange={(e) => setLastname(e.target.value)}
 									value={lastname}
-									minLength={2}
-									maxLength={50}
-									pattern="^[( )a-zA-Z]+$"
+									pattern="^[( )a-zA-Z_-éèàêôâîûüù]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars, letters only
@@ -148,8 +151,8 @@ function CreateForm() {
 									value={birthdate}
 									id="birthdatemin"
 									name="birthdatemin"
-									min={yearToday-80 + "-12-31"}
-									max={yearToday-15 + "-12-31"}
+									min={yearToday - 80 + "-12-31"}
+									max={yearToday - 15 + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be at least 15 years old
@@ -166,8 +169,7 @@ function CreateForm() {
 									placeholder="Street"
 									onChange={(e) => setStreet(e.target.value)}
 									value={street}
-									minLength={2}
-									maxLength={50}
+									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars
@@ -180,8 +182,7 @@ function CreateForm() {
 									placeholder="City"
 									onChange={(e) => setCity(e.target.value)}
 									value={city}
-									minLength={2}
-									maxLength={50}
+									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars
@@ -213,8 +214,7 @@ function CreateForm() {
 									placeholder="Zip Code"
 									onChange={(e) => setZipcode(e.target.value)}
 									value={zipcode}
-									min={10000}
-									max={99999}
+									pattern="^[0-9]{5}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 5 numbers
@@ -233,8 +233,8 @@ function CreateForm() {
 									onChange={(e) => setStartdate(e.target.value)}
 									value={startdate}
 									id="startdatemin"
-									name="startdatemin"									
-									min={yearToday-80 + "-12-31"}
+									name="startdatemin"
+									min={yearToday - 80 + "-12-31"}
 									max={yearToday + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">

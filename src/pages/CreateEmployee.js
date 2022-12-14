@@ -4,10 +4,12 @@ import { uploadEmployees, activateState } from "../features/employeeSlice";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import CreateForm from "../components/CreateForm/CreateForm";
+import Populate from "../components/Populate/Populate";
 import "../style/style.css";
 
 /**
- * CreateEmployee is a function that returns a Container containing a form to be filled
+ * CreateEmployee is a function that returns a React Container including a form for employee declaration
+ *
  * @returns A Container with Form component.
  */
 const CreateEmployee = () => {
@@ -25,11 +27,14 @@ const CreateEmployee = () => {
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
-		<Container fluid className="h-100 bg-color-custom">
-			<Row className="main-row justify-content-center align-items-center" bg="primary">
-				<CreateForm />
-			</Row>
-		</Container>
+		<section role="contentinfo" aria-label="Create Employees page">
+			<Container fluid className="h-100 bg-color-custom">
+				<Row className="main-row justify-content-center align-items-center" bg="primary">
+					<CreateForm />
+					<Populate />
+				</Row>
+			</Container>
+		</section>
 	);
 };
 
