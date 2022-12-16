@@ -8,7 +8,6 @@ import STATES from "../../data/STATES.json";
 import checkForm from "../../utils/FormValidation";
 import "../../style/style.css";
 
-
 /**
  *  CreateForm is a React component in charge of displaying the form to declare an employee.
  * 	It includes reset button to clear the form and submit button to launch employee creation.
@@ -83,13 +82,9 @@ function CreateForm() {
 		if (inputResult === "Employee successfully created !") {
 			dispatch(addEmployee(inputValue));
 			resetInputValues();
-			e.target.reset();
-			setOpenModal(true);
 			setValidated(false);
-			return;
 		}
-
-		if (inputResult !== "") setOpenModal(true);
+		setOpenModal(true);
 	}
 
 	// The handleReset function called on clicking reset button
@@ -168,7 +163,7 @@ function CreateForm() {
 									placeholder="Street"
 									onChange={(e) => setStreet(e.target.value)}
 									value={street}
-									pattern="^[( )0-9a-zA-Z_-éèàêôâîûüù-]{2,50}$"
+									pattern="^[( )0-9a-zA-Z_,éèàêôâîûüù-]{2,50}$"
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
 									must be 2 to 50 chars
@@ -191,7 +186,11 @@ function CreateForm() {
 						<Row>
 							<Col>
 								<Form.Label>State</Form.Label>
-								<Form.Select onChange={(e) => setState(e.target.value)} required value={state}>
+								<Form.Select
+									data-testid={"select-state"}
+									onChange={(e) => setState(e.target.value)}
+									required
+									value={state}>
 									<option value="">Select State</option>
 									{STATES.map((element) => {
 										return (
@@ -243,6 +242,7 @@ function CreateForm() {
 							<Col>
 								<Form.Label>Department</Form.Label>
 								<Form.Select
+									data-testid={"select-department"}
 									onChange={(e) => setDepartment(e.target.value)}
 									required
 									value={department}>

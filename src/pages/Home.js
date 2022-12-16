@@ -7,11 +7,10 @@ import "../style/style.css";
 /**
  * Home is a function that returns a Container displaying a welcome page
  * with Wealth Health logo
- * 
+ *
  * @returns A Container with HomeCard component.
  */
 const Home = () => {
-
 	return (
 		<section role="contentinfo" aria-label="Welcome page with logo">
 			<Container fluid className="bg-color-custom">

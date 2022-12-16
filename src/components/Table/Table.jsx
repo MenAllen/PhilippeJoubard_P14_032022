@@ -2,11 +2,10 @@ import React from "react";
 import propTypes from "prop-types";
 import Populate from "../Populate/Populate";
 import { useTable, useGlobalFilter, useAsyncDebounce, usePagination, useSortBy } from "react-table";
+import Row from "react-bootstrap/Row";
 import "../../style/style.css";
 
-/**
- * Global Filtering Function
- */
+// * Global Filtering Function
 function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) {
 	const count = preGlobalFilteredRows.length;
 	const [value, setValue] = React.useState(globalFilter);
@@ -30,9 +29,7 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 	);
 }
 
-/**
- * Column hiding Function
- */
+// * Column hiding Function
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
 	const defaultRef = React.useRef();
 	const resolvedRef = ref || defaultRef;
@@ -57,8 +54,15 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 export default function Table({ columns, data }) {
 	const [displayColumnsBar, setDisplayColumnsBar] = React.useState(false);
 
-	const toggleColumnsBar = () => {
-		setDisplayColumnsBar(!displayColumnsBar);
+	// * Toggle menu for columns hiding. Click outside the menu closes the menu if open
+	const toggleColumnsBar = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		if (e.target.attributes.class !== undefined) {
+			if (e.target.attributes.class.nodeValue === "customBtn rndCorner") {
+				setDisplayColumnsBar(!displayColumnsBar);
+			} else setDisplayColumnsBar(false);
+		}
 	};
 
 	// Use the useTable Hook to send the columns and data to build the table
@@ -95,7 +99,10 @@ export default function Table({ columns, data }) {
 
 	// Render the UI for the table
 	return (
-		<>
+		<Row
+			className="main-row justify-content-center align-items-center"
+			bg="primary"
+			onClick={toggleColumnsBar}>
 			<div className="d-inline-flex justify-content-center flex-wrap position-relative w-85 my-3 p-0">
 				<h1 className="p-3 text-center text-dark">List Employees</h1>
 				<div className="selectColumns">
@@ -201,7 +208,7 @@ export default function Table({ columns, data }) {
 					</div>
 				</div>
 			</div>
-		</>
+		</Row>
 	);
 }
 

@@ -10,7 +10,6 @@ import "../style/style.css";
  * @returns A Container with Form component.
  */
 const CreateEmployee = () => {
-
 	return (
 		<section role="contentinfo" aria-label="Create Employees page">
 			<Container fluid className="h-100 bg-color-custom">

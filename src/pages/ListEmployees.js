@@ -1,15 +1,13 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Table from "../components/Table/Table";
 import "../style/style.css";
 import { COLUMNS } from "../data/COLUMNS";
 
-
 /**
  * ListEmployees is a function that returns a React container including a table with list of employees.
- * 
+ *
  * @returns A Container with Table displaying table list of employees.
  */
 function ListEmployees() {
@@ -22,9 +20,7 @@ function ListEmployees() {
 	return (
 		<section role="contentinfo" aria-label="List Employees table page">
 			<Container fluid className="h-100 bg-color-custom">
-				<Row className="main-row justify-content-center align-items-center" bg="primary">
-					<Table columns={columns} data={data} />
-				</Row>
+				<Table columns={columns} data={data} />
 			</Container>
 		</section>
 	);

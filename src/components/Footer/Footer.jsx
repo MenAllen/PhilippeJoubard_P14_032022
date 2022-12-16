@@ -2,8 +2,8 @@ import React from "react";
 import "../../style/style.css";
 
 /**
- * Footer is a React component with a paragraph element displaying copyright text 
- * 
+ * Footer is a React component with a paragraph element displaying copyright text
+ *
  * @returns A footer element with Copyright text.
  */
 function Footer() {

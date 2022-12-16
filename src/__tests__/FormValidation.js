@@ -1,4 +1,5 @@
 import checkForm from "../utils/FormValidation";
+import '@testing-library/jest-dom';
 
 describe("Given I am filling the form to create an employee", () => {
 	// Birth date must be at least 15 years behind

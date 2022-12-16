@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../store";
 import ListEmployees from "../pages/ListEmployees";
+import '@testing-library/jest-dom';
 import { render, screen } from "@testing-library/react";
 
 describe("Home", () => {

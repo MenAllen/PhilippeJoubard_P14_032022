@@ -1,5 +1,6 @@
 import HomeCard from "../components/HomeCard/HomeCard";
 import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom';
 
 describe("HomeCard", () => {
 	test("Should render without crash", async () => {

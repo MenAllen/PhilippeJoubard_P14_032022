@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header/Header";
 import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom';
 
 describe("Header", () => {
 	test("Should render without crash", async () => {

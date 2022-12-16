@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import '@testing-library/jest-dom';
 import { store } from "../store";
 import Home from "../pages/Home";
 import { render, screen } from "@testing-library/react";

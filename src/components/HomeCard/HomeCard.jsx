@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import logo from "../../assets/Logo.webp";
 import "../../style/style.css";
 
-
 /**
  *  HomeCard is a React component in charge of displaying the Home page.
  * 	It includes the company logo and a message.
