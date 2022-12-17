@@ -1,31 +1,39 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../store";
-import CreateForm from "../components/CreateForm/CreateForm";
-import { render, fireEvent, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import CreateEmployee from "../pages/CreateEmployee";
 import "@testing-library/jest-dom";
+import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-describe("CreateForm", () => {
-	test("Should render without crash and display heading as well as submit & reset button", async () => {
+describe("Home", () => {
+	test("Should render without crash", async () => {
 		render(
 			<Provider store={store}>
 				<Router>
-					<CreateForm />
+					<CreateEmployee />
 				</Router>
 			</Provider>
 		);
-		const element = screen.getByRole("heading", { level: 1, text: "Create Employees" });
-		expect(element).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 1, text: "Create Employee" })).toBeTruthy();
+		expect(screen.getByText("First Name")).toBeTruthy();
+		expect(screen.getByText("Last Name")).toBeTruthy();
+		expect(screen.getByText("Birth Date")).toBeTruthy();
 
-		expect(screen.getByText("Submit")).toBeInTheDocument();
+		expect(screen.getByText("Street")).toBeTruthy();
+		expect(screen.getByText("City")).toBeTruthy();
+		expect(screen.getByText("State")).toBeTruthy();
+		expect(screen.getByText("Zip Code")).toBeTruthy();
+
+		expect(screen.getByText("Start Date")).toBeTruthy();
+		expect(screen.getByText("Department")).toBeTruthy();
 	});
 
-	test("Should render without crash and call handleSubmit on click with invalid inputs", async () => {
+	test("Should render without crash and call handle submit on click with valid & invalid inputs", async () => {
 		render(
 			<Provider store={store}>
 				<Router>
-					<CreateForm />
+					<CreateEmployee />
 				</Router>
 			</Provider>
 		);
@@ -48,7 +56,7 @@ describe("CreateForm", () => {
 		render(
 			<Provider store={store}>
 				<Router>
-					<CreateForm />
+					<CreateEmployee />
 				</Router>
 			</Provider>
 		);
@@ -107,7 +115,7 @@ describe("CreateForm", () => {
 		render(
 			<Provider store={store}>
 				<Router>
-					<CreateForm />
+					<CreateEmployee />
 				</Router>
 			</Provider>
 		);
@@ -160,35 +168,61 @@ describe("CreateForm", () => {
 		expect(screen.getByText("Employee successfully created !")).toBeInTheDocument();
 	});
 
-	test("Should render without crash and call handleReset on click", async () => {
+	test("Should render without crash and call handleSubmit on click with valid inputs", async () => {
 		render(
 			<Provider store={store}>
 				<Router>
-					<CreateForm />
+					<CreateEmployee />
 				</Router>
 			</Provider>
 		);
 
-		// Set a state
+		//	Fill in the input fields before submit
+		fireEvent.change(screen.getByPlaceholderText("Firstname"), {
+			target: { value: "José-Pierre" },
+		});
+
+		fireEvent.change(screen.getByPlaceholderText("Lastname"), {
+			target: { value: "De La Motte-Picquet" },
+		});
+
+		fireEvent.change(screen.getByPlaceholderText("Birth Date"), {
+			target: { value: "1985-08-01" },
+		});
+
+		fireEvent.change(screen.getByPlaceholderText("Street"), {
+			target: { value: "2, Rue Marcel-Cerdan" },
+		});
+
+		fireEvent.change(screen.getByPlaceholderText("City"), {
+			target: { value: "Valparaiso" },
+		});
+
+		// Specific for select
 		userEvent.selectOptions(
 			screen.getByTestId("select-state"),
 			screen.getByRole("option", { name: "Arizona" })
 		);
 		expect(screen.getByRole("option", { name: "Arizona" }).selected).toBe(true);
 
-		// Set a department
+		fireEvent.change(screen.getByPlaceholderText("Zip Code"), {
+			target: { value: "01234" },
+		});
+
+		fireEvent.change(screen.getByPlaceholderText("Start Date"), {
+			target: { value: "2015-07-18" },
+		});
+
+		// Specific for select
 		userEvent.selectOptions(
 			screen.getByTestId("select-department"),
 			screen.getByRole("option", { name: "Engineering" })
 		);
 		expect(screen.getByRole("option", { name: "Engineering" }).selected).toBe(true);
 
-		fireEvent.reset(screen.getByText("Reset"));
+		fireEvent.submit(screen.getByText("Submit"));
 
-		// Check unselect state é department
-		expect(screen.getAllByText("Select Department")[0]).toBeVisible();
-		expect(screen.getAllByText("Select Department")[1]).toBeVisible();
-		expect(screen.getAllByText("Select State")[0]).toBeVisible();
-		expect(screen.getAllByText("Select State")[1]).toBeVisible();
+		expect(screen.getByText("Employee successfully created !")).toBeInTheDocument();
 	});
+
 });

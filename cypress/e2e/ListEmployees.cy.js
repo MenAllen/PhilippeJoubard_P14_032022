@@ -79,13 +79,27 @@ describe('List Employees Page must also', () => {
 		cy.visit("https://sparkling-elf-38d7d4.netlify.app/list");
 	});
 
-  it('give possibility to toggel columns', () => {
+  it('give possibility to toggle columns', () => {
     cy.get('.customBtn').click()
     cy.get(':nth-child(10) > input').click()
     cy.get('.customBtn').click()
     cy.get('.main-row').should('not.contain.text', 'Employee Identity')
   });
 
+  it('give possibility to navigate in the pages: >, >>, <, <<', () => {
+    cy.get('.d-inline-flex > :nth-child(1) > :nth-child(3)').click()
+    cy.get('span > :nth-child(2)').should('contain.text', '2 of 5')
+
+    cy.get('.d-inline-flex > :nth-child(1) > :nth-child(4)').click()
+    cy.get('span > :nth-child(2)').should('contain.text', '5 of 5')
+
+    cy.get('.main-row > .align-items-center > .d-inline-flex > :nth-child(1) > :nth-child(2)').click()
+    cy.get('span > :nth-child(2)').should('contain.text', '4 of 5')
+
+    cy.get('.main-row > .align-items-center > .d-inline-flex > :nth-child(1) > :nth-child(1)').click()
+    cy.get('span > :nth-child(2)').should('contain.text', '1 of 5')
+
+  });
 
 
 })

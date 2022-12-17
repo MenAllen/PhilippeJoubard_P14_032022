@@ -21,12 +21,19 @@
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
+  "jest": {
+    "clearMocks": true,
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+   }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!plugin-modal)/\" --all --coverage",
+    "test": "react-scripts test  --transformIgnorePatterns \"node_modules/(?!plugin-modal)/\" -i --coverage",
     "eject": "react-scripts eject"
   },
+  "jsx": "react",
   "eslintConfig": {
     "extends": [
       "react-app",
