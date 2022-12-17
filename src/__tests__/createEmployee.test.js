@@ -225,4 +225,36 @@ describe("Home", () => {
 		expect(screen.getByText("Employee successfully created !")).toBeInTheDocument();
 	});
 
+	test("Should render without crash and call handleReset on click", async () => {
+		render(
+			<Provider store={store}>
+				<Router>
+					<CreateEmployee />
+				</Router>
+			</Provider>
+		);
+
+		// Set a state
+		userEvent.selectOptions(
+			screen.getByTestId("select-state"),
+			screen.getByRole("option", { name: "Arizona" })
+		);
+		expect(screen.getByRole("option", { name: "Arizona" }).selected).toBe(true);
+
+		// Set a department
+		userEvent.selectOptions(
+			screen.getByTestId("select-department"),
+			screen.getByRole("option", { name: "Engineering" })
+		);
+		expect(screen.getByRole("option", { name: "Engineering" }).selected).toBe(true);
+
+		fireEvent.reset(screen.getByText("Reset"));
+
+		// Check unselect state é department
+		expect(screen.getAllByText("Select Department")[0]).toBeVisible();
+		expect(screen.getAllByText("Select Department")[1]).toBeVisible();
+		expect(screen.getAllByText("Select State")[0]).toBeVisible();
+		expect(screen.getAllByText("Select State")[1]).toBeVisible();
+	});
+
 });

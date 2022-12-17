@@ -25,12 +25,16 @@
     "clearMocks": true,
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
-   }
+   },
+   "collectCoverageFrom": [
+    "src/**/{!(index),}.js"
+  ],
+  "transformIgnorePatterns": ["../../node_modules/(?!${plugin-modal})"]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test  --transformIgnorePatterns \"node_modules/(?!plugin-modal)/\" -i --coverage",
+    "test": "react-scripts test --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "jsx": "react",

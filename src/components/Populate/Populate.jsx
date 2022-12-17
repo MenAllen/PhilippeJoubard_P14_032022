@@ -11,7 +11,6 @@ import "../../style/style.css";
  * @returns A div with a Button for calling Modal when populate is finished.
  */
 function Populate() {
-	console.log('populate');
 	const dispatch = useDispatch();
 	const populateColor = "#93AD18";
 	const populateMessage = "Populate successfully done !";
@@ -19,7 +18,6 @@ function Populate() {
 	const [openModal, setOpenModal] = useState(false);
 
 	const launchPopulate = () => {
-		console.log('launchPopulate');
 		dispatch(uploadEmployees({ employeeList: MOCKDATA }));
 		setOpenModal(!openModal);
 	};

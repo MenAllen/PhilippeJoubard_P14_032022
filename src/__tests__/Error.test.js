@@ -15,5 +15,6 @@ describe("Home", () => {
 				</Router>
 			</Provider>
 		);
+		expect(screen.getByText("Error ! Requested page doesn't exist")).toBeTruthy();
 	});
 });

@@ -11,11 +11,9 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
 	const count = preGlobalFilteredRows.length;
 	const [value, setValue] = React.useState(globalFilter);
 	const onChange = useAsyncDebounce((value) => {
-		console.log("onChange")
 		setGlobalFilter(value || undefined);
 	}, 200);
 
-	console.log("GlobalFilter")
 	return (
 		<div className="searchBlock">
 			<strong>Search</strong>
