@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@menallen/plugin-modal": "^0.1.5",
+    "@menallen/plugin-modal": "^0.1.6",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -25,11 +25,15 @@
     "clearMocks": true,
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
-   },
-   "collectCoverageFrom": [
-    "src/**/{!(index),}.js"
-  ],
-  "transformIgnorePatterns": ["../../node_modules/(?!${plugin-modal})"]
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/reportWebVitals.js"
+    ],
+    "transformIgnorePatterns": [
+      "../../node_modules/(?!${plugin-modal})"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",

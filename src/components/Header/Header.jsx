@@ -15,15 +15,15 @@ import "../../style/style.css";
 function Header() {
 	return (
 		<header>
-			<Navbar bg="light" expand="md">
+			<Navbar bg="white" expand="md">
 				<Container className="justify-content-between">
-					<Navbar bg="light">
+					<Navbar bg="white">
 						<NavLink to="/">
 							<img
 								alt="logo wealth health"
 								src={logo}
-								width="80"
-								height="75"
+								width="60"
+								height="56"
 								className="d-inline-block align-top"
 								fetchpriority="high"
 							/>

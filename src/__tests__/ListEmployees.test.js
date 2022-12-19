@@ -56,6 +56,9 @@ describe("ListEmployees", () => {
     fireEvent.click(screen.getByText("COL"));
     fireEvent.click(screen.getByText("X"));
 
+		fireEvent.click(screen.getByText("COL"));
+    fireEvent.click(screen.getByText("Employee Identity"));
+
     fireEvent.click(screen.getByRole("button", { name: "Pop" } ));
     fireEvent.click(screen.getByRole("button", { name: "OK" } ));
 
@@ -82,8 +85,9 @@ describe("ListEmployees", () => {
 			</Provider>
 		);
     expect(screen.getByRole("heading", { level: 1, text: "List Employees" })).toBeTruthy();
-
+		
     fireEvent.click(screen.getAllByRole("columnheader", { name: "Toggle SortBy" } )[0]);
+		expect(screen.getByText("▲")).toBeInTheDocument();
 
   })
 });

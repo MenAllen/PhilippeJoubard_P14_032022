@@ -53,10 +53,10 @@ To load the employees from MOCKDATA.json:
 ## Jsdoc
 JSDoc is available in jsdoc directory. Launch index.html (located in jsdoc directory) to vizualize the code documentation.
 
-## Jest
+## Unit & Integration Tests with Jest
 'npm run test' to run Jest tests.Launch index.html (located in coverage/lcov-report directory) to vizualize the tests coverage.
 
 ## End to End Tests wih cypress
 'npx cypress open' will launch cypress interface. Then select 'End to End' test, then choose browser.
-Test files are HomeTests.cy.js, CreateEmployee.cy.js, ListEmployess.cy.js.
+Test files are HomeTests.cy.js, CreateEmployee.cy.js, ListEmployess.cy.js & ErrorTest.cy.js.
 App URL used: https://sparkling-elf-38d7d4.netlify.app 

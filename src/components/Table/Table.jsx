@@ -55,14 +55,15 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 export default function Table({ columns, data }) {
 	const [displayColumnsBar, setDisplayColumnsBar] = React.useState(false);
 
-	// * Toggle menu for columns hiding. Click outside the menu closes the menu if open
+	// * Toggle menu for columns hiding. Clicking outside the menu closes the menu if open
 	const toggleColumnsBar = (e) => {
-		e.preventDefault();
 		e.stopPropagation();
-		if (e.target.attributes.class !== undefined) {
+		if (e.target.attributes.class !== undefined ) {
 			if (e.target.attributes.class.nodeValue === "customBtn rndCorner") {
 				setDisplayColumnsBar(!displayColumnsBar);
-			} else setDisplayColumnsBar(false);
+			} else 
+				if (e.target.attributes.class.nodeValue !== "checkbox")
+				setDisplayColumnsBar(false);
 		}
 	};
 
