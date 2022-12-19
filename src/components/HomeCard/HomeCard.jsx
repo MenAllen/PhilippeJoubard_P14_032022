@@ -4,10 +4,9 @@ import logo from "../../assets/Logo.webp";
 import "../../style/style.css";
 
 /**
- *  HomeCard is a React component in charge of displaying the Home page.
- * 	It includes the company logo and a message.
+ *  HomeCard is a React component in charge of displaying the company logo and a message.
  *
- *  @returns a div including the welcome message
+ *  @returns a Card element including the welcome message
  */
 function HomeCard() {
 	return (

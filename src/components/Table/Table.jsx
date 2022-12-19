@@ -46,13 +46,14 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
  *  Table is a React component in charge of displaying the list of employees.
  *  It is based on bootstrap react Table.
  *	It includes table facilities : sort, search, pagination & column hiding
+ *	It also includes table populate facility
  *
- *  @prop {colums} includes the colums name for the table header
- * 				{ data } includes the content of the table
+ *  @prop {columns} includes the colums name for the table header
+ *  @prop {data} includes the content of the table
  *
  *  @returns a div including the Table with columns header and the employees data
  */
-export default function Table({ columns, data }) {
+function Table({ columns, data }) {
 	const [displayColumnsBar, setDisplayColumnsBar] = React.useState(false);
 
 	// * Toggle menu for columns hiding. Clicking outside the menu closes the menu if open
@@ -218,3 +219,5 @@ Table.propTypes = {
 	columns: propTypes.array.isRequired,
 	data: propTypes.array.isRequired,
 };
+
+export default Table;

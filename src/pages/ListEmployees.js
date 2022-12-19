@@ -6,9 +6,10 @@ import "../style/style.css";
 import { COLUMNS } from "../data/COLUMNS";
 
 /**
- * ListEmployees is a function that returns a React container including a table with list of employees.
+ * ListEmployees is a function in charge of displaying the list of employees 
+ * defined in the store with displaying facilities (filter, search...)
  *
- * @returns A Container with Table displaying table list of employees.
+ * @returns A Container with React Bootstrap Table displaying table list of employees.
  */
 function ListEmployees() {
 	const employees = useSelector((state) => state.employeeList);

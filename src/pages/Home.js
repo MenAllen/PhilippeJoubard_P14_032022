@@ -5,7 +5,7 @@ import HomeCard from "../components/HomeCard/HomeCard";
 import "../style/style.css";
 
 /**
- * Home is a function that returns a Container displaying a welcome page
+ * Home is a function returning a Container displaying a welcome page
  * with Wealth Health logo
  *
  * @returns A Container with HomeCard component.

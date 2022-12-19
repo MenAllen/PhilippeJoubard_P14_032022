@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 /**
- *  Redux employee slice creation, part of Redux store. It includes
- *    Initial state
- *    Reducers :
- *      addEmployee			load employee in Redux store
- * 			uploadEmployees load employees from mockeddata to Redux store, after clearing the Redux store
+ *  Redux employee slice creation, part of Redux store. It initializes the state (initialState) and
+ *  declare two actions : addEmployee & uploadEmployees
+ * 
+ *  @returns None
  */
 const employeeSlice = createSlice({
 	name: "employee",

@@ -5,9 +5,10 @@ import Row from "react-bootstrap/Row";
 import "../style/style.css";
 
 /**
- * Error page is called whenever the url given doesn't exist
+ * Error page is called whenever the url given doesn't exist.
+ * It makes use of plugin modal to popup a message
  *
- * @returns a container including {React.ReactElement} modal with error message and link to Home page
+ * @returns a container including modal with error message and link to Home page
  */
 function Error() {
 	const errorColor = "#f08d3a";

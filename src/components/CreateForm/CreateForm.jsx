@@ -10,10 +10,10 @@ import "../../style/style.css";
 
 /**
  *  CreateForm is a React component in charge of displaying the form to declare an employee.
- * 	It includes reset button to clear the form and submit button to launch employee creation.
- *  It also includes a Modal to popup messages on submit if required
+ * 	It also includes reset button to clear the form and submit button to submit employee creation.
+ *  It calls the plugin modal to popup messages on submit if required.
  *
- *  @returns a div including the Form based on Bootstrap React and a Modal plugin
+ *  @returns a div including the Form based on Bootstrap React
  */
 function CreateForm() {
 	const dispatch = useDispatch();

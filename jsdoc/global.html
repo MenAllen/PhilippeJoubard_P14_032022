@@ -104,11 +104,8 @@
 
 
 <div class="description">
-    <p>Redux employee slice creation, part of Redux store. It includes
-Initial state
-Reducers :
-addEmployee			load employee in Redux store
-uploadEmployees load employees from mockeddata to Redux store, after clearing the Redux store</p>
+    <p>Redux employee slice creation, part of Redux store. It initializes the state (initialState) and
+declare two actions : addEmployee &amp; uploadEmployees</p>
 </div>
 
 
@@ -146,7 +143,7 @@ uploadEmployees load employees from mockeddata to Redux store, after clearing th
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="features_employeeSlice.js.html">features/employeeSlice.js</a>, <a href="features_employeeSlice.js.html#line10">line 10</a>
+        <a href="features_employeeSlice.js.html">features/employeeSlice.js</a>, <a href="features_employeeSlice.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -183,7 +180,7 @@ uploadEmployees load employees from mockeddata to Redux store, after clearing th
 
 <div class="description">
     <p>The App function returns a div with a Router component, including a Header component,
-Route components and a footer component.There are 4 Route components , each with a path and an element.
+Route components and a Footer component. There are 4 Route components , each with a path and an element.
 Provider makes Store available to every element, while PersistGate makes Store persistent</p>
 </div>
 
@@ -257,7 +254,7 @@ Provider makes Store available to every element, while PersistGate makes Store p
 
         
 <div class="param-desc">
-    <p>The return statement is returning a div, the JSX code that will be rendered to the DOM.</p>
+    <p>the JS code that will be rendered to the DOM.</p>
 </div>
 
 
@@ -282,7 +279,7 @@ Provider makes Store available to every element, while PersistGate makes Store p
 
 
 <div class="description">
-    <p>CreateEmployee is a function that returns a React Container including a form for employee declaration</p>
+    <p>CreateEmployee is a function that returns a React Container including CreateForm component to declare an employee</p>
 </div>
 
 
@@ -355,7 +352,7 @@ Provider makes Store available to every element, while PersistGate makes Store p
 
         
 <div class="param-desc">
-    <p>A Container with Form component.</p>
+    <p>A Container with CreateForm component.</p>
 </div>
 
 
@@ -381,8 +378,8 @@ Provider makes Store available to every element, while PersistGate makes Store p
 
 <div class="description">
     <p>CreateForm is a React component in charge of displaying the form to declare an employee.
-It includes reset button to clear the form and submit button to launch employee creation.
-It also includes a Modal to popup messages on submit if required</p>
+It also includes reset button to clear the form and submit button to submit employee creation.
+It calls the plugin modal to popup messages on submit if required.</p>
 </div>
 
 
@@ -455,7 +452,7 @@ It also includes a Modal to popup messages on submit if required</p>
 
         
 <div class="param-desc">
-    <p>a div including the Form based on Bootstrap React and a Modal plugin</p>
+    <p>a div including the Form based on Bootstrap React</p>
 </div>
 
 
@@ -472,7 +469,7 @@ It also includes a Modal to popup messages on submit if required</p>
     
 
     
-    <h4 class="name" id="Error"><span class="type-signature"></span>Error<span class="signature">()</span><span class="type-signature"> &rarr; {React.ReactElement}</span></h4>
+    <h4 class="name" id="Error"><span class="type-signature"></span>Error<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -480,7 +477,8 @@ It also includes a Modal to popup messages on submit if required</p>
 
 
 <div class="description">
-    <p>Error page is called whenever the url given doesn't exist</p>
+    <p>Error page is called whenever the url given doesn't exist.
+It makes use of plugin modal to popup a message</p>
 </div>
 
 
@@ -524,7 +522,7 @@ It also includes a Modal to popup messages on submit if required</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pages_Error.js.html">pages/Error.js</a>, <a href="pages_Error.js.html#line12">line 12</a>
+        <a href="pages_Error.js.html">pages/Error.js</a>, <a href="pages_Error.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -553,22 +551,10 @@ It also includes a Modal to popup messages on submit if required</p>
 
         
 <div class="param-desc">
-    <p>a container including  modal with error message and link to Home page</p>
+    <p>a container including modal with error message and link to Home page</p>
 </div>
 
 
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.ReactElement</span>
-
-
-    </dd>
-</dl>
 
     
 
@@ -688,8 +674,8 @@ It also includes a Modal to popup messages on submit if required</p>
 
 
 <div class="description">
-    <p>Header is a React component returning a header element with two nav elements inside of it:
-first a link to the home page, second a link to home page, create employee page and list employee page</p>
+    <p>Header is a React component returning a header with navbar menu :
+On left side, the logo linking to the home page, second a menu with 3 links: home page, create employee page and list employee page</p>
 </div>
 
 
@@ -787,7 +773,7 @@ first a link to the home page, second a link to home page, create employee page 
 
 
 <div class="description">
-    <p>Home is a function that returns a Container displaying a welcome page
+    <p>Home is a function returning a Container displaying a welcome page
 with Wealth Health logo</p>
 </div>
 
@@ -886,8 +872,7 @@ with Wealth Health logo</p>
 
 
 <div class="description">
-    <p>HomeCard is a React component in charge of displaying the Home page.
-It includes the company logo and a message.</p>
+    <p>HomeCard is a React component in charge of displaying the company logo and a message.</p>
 </div>
 
 
@@ -931,7 +916,7 @@ It includes the company logo and a message.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_HomeCard_HomeCard.jsx.html">components/HomeCard/HomeCard.jsx</a>, <a href="components_HomeCard_HomeCard.jsx.html#line12">line 12</a>
+        <a href="components_HomeCard_HomeCard.jsx.html">components/HomeCard/HomeCard.jsx</a>, <a href="components_HomeCard_HomeCard.jsx.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -960,7 +945,7 @@ It includes the company logo and a message.</p>
 
         
 <div class="param-desc">
-    <p>a div including the welcome message</p>
+    <p>a Card element including the welcome message</p>
 </div>
 
 
@@ -985,7 +970,8 @@ It includes the company logo and a message.</p>
 
 
 <div class="description">
-    <p>ListEmployees is a function that returns a React container including a table with list of employees.</p>
+    <p>ListEmployees is a function in charge of displaying the list of employees
+defined in the store with displaying facilities (filter, search...)</p>
 </div>
 
 
@@ -1029,7 +1015,7 @@ It includes the company logo and a message.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pages_ListEmployees.js.html">pages/ListEmployees.js</a>, <a href="pages_ListEmployees.js.html#line13">line 13</a>
+        <a href="pages_ListEmployees.js.html">pages/ListEmployees.js</a>, <a href="pages_ListEmployees.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -1058,7 +1044,7 @@ It includes the company logo and a message.</p>
 
         
 <div class="param-desc">
-    <p>A Container with Table displaying table list of employees.</p>
+    <p>A Container with React Bootstrap Table displaying table list of employees.</p>
 </div>
 
 
@@ -1083,7 +1069,7 @@ It includes the company logo and a message.</p>
 
 
 <div class="description">
-    <p>Populate is a React component used to populate t employeeList from file</p>
+    <p>Populate is a React component used to upload employees from MOCKDATA.json file</p>
 </div>
 
 
@@ -1168,6 +1154,182 @@ It includes the company logo and a message.</p>
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="Table"><span class="type-signature"></span>Table<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Table is a React component in charge of displaying the list of employees.
+It is based on bootstrap react Table.
+It includes table facilities : sort, search, pagination &amp; column hiding
+It also includes table populate facility</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>includes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">columns</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the colums name for the table header</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>includes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">data</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the content of the table</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Table_Table.jsx.html">components/Table/Table.jsx</a>, <a href="components_Table_Table.jsx.html#line56">line 56</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>a div including the Table with columns header and the employees data</p>
+</div>
+
+
+
+    
+
+
+
+
+
+        
     
 
     
@@ -1183,13 +1345,13 @@ It includes the company logo and a message.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CreateEmployee">CreateEmployee</a></li><li><a href="global.html#CreateForm">CreateForm</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HomeCard">HomeCard</a></li><li><a href="global.html#ListEmployees">ListEmployees</a></li><li><a href="global.html#Populate">Populate</a></li><li><a href="global.html#employeeSlice">employeeSlice</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CreateEmployee">CreateEmployee</a></li><li><a href="global.html#CreateForm">CreateForm</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HomeCard">HomeCard</a></li><li><a href="global.html#ListEmployees">ListEmployees</a></li><li><a href="global.html#Populate">Populate</a></li><li><a href="global.html#Table">Table</a></li><li><a href="global.html#employeeSlice">employeeSlice</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 19 2022 11:40:12 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 19 2022 17:38:53 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -6,7 +6,7 @@ import MOCKDATA from "../../data/MOCKDATA";
 import "../../style/style.css";
 
 /**
- * Populate is a React component used to populate t employeeList from file
+ * Populate is a React component used to upload employees from MOCKDATA.json file
  *
  * @returns A div with a Button for calling Modal when populate is finished.
  */

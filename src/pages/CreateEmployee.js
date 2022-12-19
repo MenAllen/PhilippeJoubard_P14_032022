@@ -5,9 +5,9 @@ import CreateForm from "../components/CreateForm/CreateForm";
 import "../style/style.css";
 
 /**
- * CreateEmployee is a function that returns a React Container including a form for employee declaration
+ * CreateEmployee is a function that returns a React Container including CreateForm component to declare an employee
  *
- * @returns A Container with Form component.
+ * @returns A Container with CreateForm component.
  */
 const CreateEmployee = () => {
 	return (

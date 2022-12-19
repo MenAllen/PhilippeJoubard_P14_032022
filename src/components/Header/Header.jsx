@@ -7,8 +7,8 @@ import logo from "../../assets/LogoWh.webp";
 import "../../style/style.css";
 
 /**
- * Header is a React component returning a header element with two nav elements inside of it:
- * first a link to the home page, second a link to home page, create employee page and list employee page
+ * Header is a React component returning a header with navbar menu :
+ * On left side, the logo linking to the home page, second a menu with 3 links: home page, create employee page and list employee page
  *
  * @returns A header element with nav menu.
  */
