@@ -60,15 +60,12 @@ function Table({ columns, data }) {
 	const toggleColumnsBar = (e) => {
 		e.stopPropagation();
 		if (e.target.attributes.class !== undefined ) {
-			console.log(e.target.attributes.class.nodeValue)
 			if (e.target.attributes.class.nodeValue === "customBtn rndCorner") {
 				setDisplayColumnsBar(!displayColumnsBar);
 			} else {
-				console.log("pas customBtn rndCorner")
 				if (e.target.attributes.class.nodeValue !== "checkbox") {
 				setDisplayColumnsBar(false);
-				} else
-				console.log("mais checkbox");
+				}
 			}
 		}
 	};
