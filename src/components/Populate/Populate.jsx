@@ -25,7 +25,7 @@ function Populate() {
 	return (
 		<>
 			<button
-				className={openModal ? "populateBtn hidden" : "populateBtn"}
+				className="populateBtn"
 				type="button"
 				title="Populate table"
 				onClick={launchPopulate}>

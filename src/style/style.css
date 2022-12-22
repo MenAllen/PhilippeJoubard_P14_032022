@@ -2,7 +2,7 @@
 /* Header component                              */
 /* --------------------------------------------- */
 .right-aligned {
-  flex-grow: 0 !important
+  flex-grow: 0;
 }
 
 .nav-item {
@@ -16,7 +16,7 @@
 /* --------------------------------------------- */
 /* Footer component                              */
 /* --------------------------------------------- */
-.footer {
+footer {
   display: flex;
   justify-content: center;
   border-top: 2px solid #ccc;
@@ -64,12 +64,6 @@
   margin: 0.5rem 0;
 }
 
-.form-title {
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-}
-
 /* --------------------------------------------- */
 /* Populate component                            */
 /* --------------------------------------------- */
@@ -83,10 +77,6 @@
 	color: white;
 	font-weight: 600;
 	border-radius: 5px;
-}
-
-.populateBtn.hidden {
-  display: none;
 }
 
 /* --------------------------------------------- */
@@ -203,11 +193,6 @@ input[type="checkbox"]:checked {
 /* --------------------------------------------- */
 /* Miscellaneous                                 */
 /* --------------------------------------------- */
-.small-size {
-  height: 80px;
-  width: 80px;
-}
-
 .bg-color-custom {
 /*  background-color: rgb(94, 115, 14, 0.8);*/
 /* background-color: #A4B95B;*/

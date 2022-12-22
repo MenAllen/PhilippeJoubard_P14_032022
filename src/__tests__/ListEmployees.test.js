@@ -54,7 +54,8 @@ describe("ListEmployees", () => {
 		})
 
     fireEvent.click(screen.getByText("COL"));
-    fireEvent.click(screen.getByText("X"));
+		fireEvent.click(screen.getByText("firstname"));
+		fireEvent.click(screen.getByText("X"));
 
 		fireEvent.click(screen.getByText("COL"));
     fireEvent.click(screen.getByText("Employee Identity"));
@@ -88,6 +89,6 @@ describe("ListEmployees", () => {
 		
     fireEvent.click(screen.getAllByRole("columnheader", { name: "Toggle SortBy" } )[0]);
 		expect(screen.getByText("▲")).toBeInTheDocument();
-
+    fireEvent.click(screen.getAllByRole("columnheader", { name: "Toggle SortBy" } )[0]);
   })
 });

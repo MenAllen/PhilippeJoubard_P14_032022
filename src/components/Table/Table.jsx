@@ -60,11 +60,16 @@ function Table({ columns, data }) {
 	const toggleColumnsBar = (e) => {
 		e.stopPropagation();
 		if (e.target.attributes.class !== undefined ) {
+			console.log(e.target.attributes.class.nodeValue)
 			if (e.target.attributes.class.nodeValue === "customBtn rndCorner") {
 				setDisplayColumnsBar(!displayColumnsBar);
-			} else 
-				if (e.target.attributes.class.nodeValue !== "checkbox")
+			} else {
+				console.log("pas customBtn rndCorner")
+				if (e.target.attributes.class.nodeValue !== "checkbox") {
 				setDisplayColumnsBar(false);
+				} else
+				console.log("mais checkbox");
+			}
 		}
 	};
 
@@ -73,21 +78,21 @@ function Table({ columns, data }) {
 		page,
 		getTableProps, // table props from react-table
 		getTableBodyProps, // table body props from react-table
-		headerGroups, // headerGroups, if your table has groupings
+		headerGroups, // headerGroups
 		prepareRow, // Prepare the row (this function needs to be called for each row before getting the row props)
-		allColumns,
-		getToggleHideAllColumnsProps,
-		state,
-		preGlobalFilteredRows,
-		setGlobalFilter,
-		canPreviousPage,
-		canNextPage,
-		pageOptions,
-		pageCount,
-		gotoPage,
-		nextPage,
-		previousPage,
-		setPageSize,
+		allColumns, // Columns hiding : Hiding all columns with one click
+		getToggleHideAllColumnsProps, // Columns hiding: Hiding all columns with one click
+		state, // Search: state
+		preGlobalFilteredRows, // Search: Filtering after search
+		setGlobalFilter,	// Search: Filtering after search
+		canPreviousPage, // Pagination: Indicates whether or not previous page exists
+		canNextPage, // Pagination: Indicates whether or not next page exists
+		pageOptions, // Pagination: page options (length,....)
+		pageCount, // Pagination: current page number
+		gotoPage, // Pagination: move to page
+		nextPage, // Pagination: go to next page
+		previousPage, // Pagination: go to previous page
+		setPageSize, // Pagination: select the page size
 		state: { pageIndex, pageSize },
 	} = useTable(
 		{
