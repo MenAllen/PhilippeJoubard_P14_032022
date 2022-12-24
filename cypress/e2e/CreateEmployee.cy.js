@@ -147,11 +147,8 @@ describe('Create Employee Page must', () => {
 		cy.get(":nth-child(2) > .form-select").select("Sales");
 		cy.get(".btn-success").click();
 
-    cy.get(".sc-hLBbgP").should("contain", "Employee successfully created");
-    cy.get(".sc-bcXHqe").click();
-
-    cy.get('[href="/list"]').click();
-		cy.get(".form-control").invoke("attr", "placeholder").should("contain", "1 records...");
+		cy.get('.sc-eDvSVe').should("contain", "Employee successfully created");
+		cy.get('.sc-gswNZR').click();
 
 	});
 
