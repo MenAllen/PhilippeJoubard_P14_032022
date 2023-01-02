@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import { Modal } from "@menallen/plugin-modal";
 import { addEmployee } from "../../features/employeeSlice";
 import STATES from "../../data/STATES.json";
