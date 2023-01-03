@@ -148,11 +148,11 @@ function CreateForm() {
 									value={birthdate}
 									id="birthdatemin"
 									name="birthdatemin"
-									min={yearToday - 80 + "-12-31"}
+									min={yearToday - 100 + "-12-31"}
 									max={yearToday - 15 + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
-									must be at least 15 years old
+									must be min 15 and max 100 years old
 								</Form.Control.Feedback>
 							</Form.Group>
 						</Row>
@@ -235,11 +235,11 @@ function CreateForm() {
 									value={startdate}
 									id="startdatemin"
 									name="startdatemin"
-									min={yearToday - 80 + "-12-31"}
+									min={yearToday - 50 + "-01-01"}
 									max={yearToday + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
-									must be at least 15 years old
+									must be max 50 years behind
 								</Form.Control.Feedback>
 							</Form.Group>
 							<Col>

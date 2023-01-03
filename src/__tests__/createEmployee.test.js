@@ -49,7 +49,7 @@ describe("Home", () => {
 
 		fireEvent.submit(screen.getByText("Submit"));
 
-		expect(screen.getAllByText("must be at least 15 years old")[0]).toBeVisible();
+		expect(screen.getAllByText("must be min 15 and max 100 years old")[0]).toBeVisible();
 	});
 
 	test("Should render without crash and call handleSubmit on click with valid inputs but inconsistent dates", async () => {

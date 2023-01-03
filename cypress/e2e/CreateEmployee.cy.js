@@ -59,7 +59,7 @@ describe('Create Employee Page must', () => {
 		cy.get(".btn-success").click();
 
 		cy.get(":nth-child(1) > :nth-child(2) > .mb-3 > .text-dark").contains(
-			"must be at least 15 years old"
+			"must be min 15 and max 100 years old"
 		);
 	});
 
