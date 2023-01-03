@@ -148,7 +148,7 @@ function CreateForm() {
 									value={birthdate}
 									id="birthdatemin"
 									name="birthdatemin"
-									min={yearToday - 100 + "-12-31"}
+									min={yearToday - 100 + "-01-01"}
 									max={yearToday - 15 + "-12-31"}
 								/>
 								<Form.Control.Feedback className="text-dark" type="invalid">
